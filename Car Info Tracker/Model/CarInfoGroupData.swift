@@ -58,7 +58,7 @@ extension CarInfoGroup {
         
         let ref = Database.database().reference()
         
-        /* retrieving only engine_codes branch */
+        /* retrieving data when data is changing inside the specified endpoint */
         _ = ref.child("all\(endp)").observe(DataEventType.value) { (snapshot) in
             // snapshot handler
             
@@ -67,7 +67,7 @@ extension CarInfoGroup {
             if snapshot.exists() {
                 /* MARK: - TODO Parsing the snapshot to a CarInfoGroup Data type */
                 
-                // unwrapping because we're shire that snapshot exists
+                // unwrapping because we're sure that snapshot exists
                 print(snapshotValue!)
             } else {
                 print("No data available at 'all\(endp)'")
