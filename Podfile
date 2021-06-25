@@ -13,6 +13,10 @@ target 'Car Info Tracker' do
 
   # add pods for any other desired Firebase products
   # https://firebase.google.com/docs/ios/setup#available-pods
+  
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
 
   target 'Car Info TrackerTests' do
     inherit! :search_paths
