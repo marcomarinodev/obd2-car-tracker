@@ -1,15 +1,15 @@
 {
-    "error_codes": {
-        
-    },
-    
-    "sensors": {
-        "engine_codes": {
+    "all": {
+        "error_codes": {
             
         },
         
-        "other_codes": {
+        "engine_codes": {
+                
+        },
             
+        "other_codes": {
+                
         }
     }
 }

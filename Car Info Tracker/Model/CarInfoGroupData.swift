@@ -8,7 +8,33 @@
 import Foundation
 import FirebaseDatabase
 
+/**
+ Enum that represents possible endpoints
+ */
+public enum Endpoint {
+    case All
+    case Engine
+    case Chassis
+    case ErrorCodes
+}
+
 extension CarInfoGroup {
+    
+    /**
+     it converts endpoint taken from controller into a real endpoint (server-side)
+     */
+    private static func convertEndpoint(_ endpoint: Endpoint) -> String {
+        switch endpoint {
+        case .All:
+            return ""
+        case .Engine:
+            return "/engine_codes"
+        case .Chassis:
+            return "/other_codes"
+        case .ErrorCodes:
+            return "/error_codes"
+        }
+    }
     
     /* MARK: - Mock Data */
     public static func sampleEngine() -> CarInfoGroup {
@@ -26,11 +52,14 @@ extension CarInfoGroup {
     }
     
     /* MARK: - Real Data */
-    public static func realEngine() -> CarInfoGroup? {
+    public static func getDataOf(endpoint ep: Endpoint) -> CarInfoGroup? {
+        
+        let endp = convertEndpoint(ep)
         
         let ref = Database.database().reference()
         
-        _ = ref.observe(.value) { (snapshot) in
+        /* retrieving only engine_codes branch */
+        _ = ref.child("all\(endp)").observe(DataEventType.value) { (snapshot) in
             // snapshot handler
             
             let snapshotValue = snapshot.value as? NSDictionary
@@ -41,12 +70,14 @@ extension CarInfoGroup {
                 // unwrapping because we're shire that snapshot exists
                 print(snapshotValue!)
             } else {
-                print("No data available")
+                print("No data available at 'all\(endp)'")
             }
         }
         
         return nil
         
     }
+    
+    
     
 }
