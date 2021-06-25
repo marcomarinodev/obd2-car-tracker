@@ -1,0 +1,6 @@
+framework module Pods_Car_Info_Tracker_Car_Info_TrackerUITests {
+  umbrella header "Pods-Car Info Tracker-Car Info TrackerUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

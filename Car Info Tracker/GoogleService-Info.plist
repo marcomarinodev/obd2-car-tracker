@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>746018503405-4mld6e17snqpu9mntq9eg38flp8321pr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.746018503405-4mld6e17snqpu9mntq9eg38flp8321pr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCWlZ34yZj9F4xx_u3e7vWAnOtq5S3R18M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>746018503405</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mmdev.Car-Info-Tracker</string>
+	<key>PROJECT_ID</key>
+	<string>info-car-4717a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>info-car-4717a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:746018503405:ios:a61d62f5719c1e00086ae4</string>
+	<key>DATABASE_URL</key>
+	<string>https://info-car-4717a-default-rtdb.europe-west1.firebasedatabase.app</string>
+</dict>
+</plist>
