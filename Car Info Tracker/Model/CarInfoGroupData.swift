@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 extension CarInfoGroup {
     
-    /* mock data */
+    /* MARK: - Mock Data */
     public static func sampleEngine() -> CarInfoGroup {
         
         let info = [
@@ -24,7 +25,28 @@ extension CarInfoGroup {
         
     }
     
-    /* real data from server */
-    
+    /* MARK: - Real Data */
+    public static func realEngine() -> CarInfoGroup? {
+        
+        let ref = Database.database().reference()
+        
+        _ = ref.observe(.value) { (snapshot) in
+            // snapshot handler
+            
+            let snapshotValue = snapshot.value as? NSDictionary
+            
+            if snapshot.exists() {
+                /* MARK: - TODO Parsing the snapshot to a CarInfoGroup Data type */
+                
+                // unwrapping because we're shire that snapshot exists
+                print(snapshotValue!)
+            } else {
+                print("No data available")
+            }
+        }
+        
+        return nil
+        
+    }
     
 }
