@@ -92,23 +92,20 @@ extension CarInfoGroup {
             carInfoGroup.attributes.removeAll()
             
             if snapshot.exists() {
-                /* MARK: - TODO Parsing the snapshot to a CarInfoGroup Data type */
+                /* Parsing the snapshot to a CarInfoGroup Data type */
                 
-                // if the endpoint is error codes, then we're expecting "error_code" : "error_name" objects
-                
-                if (ep == .ErrorCodes) {
-                    let data = snapshot.value! as? [String: String]
-                } else {
+                for child in snapshot.children {
                     
-                    // if the endpoint is not an error code, we're expecting "info_name" : {ObdValueType, "value"}
-                    let dataKey = snapshot.key
-                    let dataValue = snapshot.value! as? [String: AnyObject]
-                    
-                    // Now I can cast AnyObject to CarInfo
-                    let carInfo = [CarInfo]()
-                    carInfoGroup.attributes = carInfo
+                    if let snapshot = child as? DataSnapshot,
+                       let carInfoItem = CarInfo(snapshot: snapshot) {
+                        
+                        carInfoGroup.attributes.append(carInfoItem)
+                        
+                    }
                     
                 }
+                
+                completion(carInfoGroup)
                 
             } else {
                 print("No data available at 'all\(endp)'")
