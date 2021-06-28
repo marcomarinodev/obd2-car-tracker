@@ -31,6 +31,7 @@ public enum ObdValueType: String {
     case UnitVolt = "u.volt"
     case UnitKM = "u.km"
     case UnitMA = "u.ma"
+    case UnitL = "u.l"
 }
 
 /**
@@ -44,7 +45,7 @@ public enum ObdValueType: String {
 public struct CarInfo {
     public var infoType: ObdValueType
     public var name: String
-    public var value: String?
+    public var value: Any?
     
     init(unit infoType: ObdValueType, name: String, value: String?) {
         self.infoType = infoType
@@ -52,18 +53,66 @@ public struct CarInfo {
         self.value = (value == nil) ? "" : value
     }
     
-    init?(snapshot: DataSnapshot) {
-        guard
-            let snapVal = snapshot.value as? [String: AnyObject],
-            let unit = snapVal["unit"] as? String,
-            let value = snapVal["value"] as? String else {
+    
+    init?(item: Dictionary<String, AnyObject>.Element) {
+        // the key is always a string
+        self.name = item.key
+        
+        if let valueData = item.value as? String {
+        
+            // trouble codes
+            self.value = valueData
+            self.infoType = .None
+        
+        } else {
             
-            return nil
+            // normal codes
+            // convert unit as string
+            if let unit = item.value["unit"] as? String {
+                
+                self.infoType = ObdValueType(rawValue: unit)!
+                
+                // taking infoAny as AnyObject value
+                let infoAny = item.value["value"]
+                
+                // if the unit string contains Unit ==> value field is numerical
+                if (unit.contains("Unit") == true) {
+                    
+                    // error checking
+                    if let numericalInfo = infoAny as? NSNumber {
+                        
+                        self.value = numericalInfo
+                    
+                    } else {
+                        print("cannot convert info as numerical (unit info)")
+                        
+                        return nil
+                    }
+                    
+                } else {
+                    // unit string does not contain Unit ==> value field is alfanumeric
+                    
+                    // error checking
+                    if let stringInfo = infoAny as? NSString {
+                        
+                        self.value = stringInfo
+                        
+                    } else {
+                        
+                        print("cannot convert string info as string (alfanumeric info))")
+                        
+                        return nil
+                        
+                    }
+                }
+            } else {
+                print("cannot convert unit to string (really strange)")
+                
+                return nil
+            }
+            
         }
         
-        self.infoType = ObdValueType(rawValue: unit)!
-        self.name = snapshot.key
-        self.value = value
     }
     
     public func toAnyObject() -> Any {

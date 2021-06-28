@@ -1,7 +1,7 @@
 {
     "all": {
         "error_codes": {
-            
+            "P0141" : "O2 Sensor Heater Circuit Malfunction (Bank 1, Sensor 2)"
         },
         
         "engine_codes": {
@@ -10,9 +10,13 @@
                 "value": 413.2
             }
         },
+        
+        "chassis_codes": {
+            
+        },
             
         "other_codes": {
-                
+            "CAR_MODEL" : "Renault Clio 2021 Hybrid"
         }
     }
 }
