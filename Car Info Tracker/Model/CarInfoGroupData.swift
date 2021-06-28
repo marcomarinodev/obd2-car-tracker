@@ -21,7 +21,7 @@ public enum Endpoint {
 extension CarInfoGroup {
     
     /**
-     it converts endpoint taken from controller into a real endpoint (server-side)
+     It converts endpoint taken from controller into a real endpoint (server-side)
      */
     private static func convertEndpoint(_ endpoint: Endpoint) -> String {
         switch endpoint {
@@ -40,41 +40,80 @@ extension CarInfoGroup {
     public static func sampleEngine() -> CarInfoGroup {
         
         let info = [
-            CarInfo(infoType: .UnitCelsius, name: "Fuel Status", value: "Open loop due to insufficient engine temperature"),
-            CarInfo(infoType: .UnitKPH, name: "Speed", value: "0 KM/H"),
-            CarInfo(infoType: .UnitRPM, name: "RPM", value: "650 RPM"),
-            CarInfo(infoType: .UnitkPA, name: "Fuel Pressure", value: "413 kPA"),
-            CarInfo(infoType: .UnitkPA, name: "Intake Pressure", value: "74.5 kPA"),
+            CarInfo(unit: .UnitCelsius, name: "Fuel Status", value: "Open loop due to insufficient engine temperature"),
+            CarInfo(unit: .UnitKPH, name: "Speed", value: "0 KM/H"),
+            CarInfo(unit: .UnitRPM, name: "RPM", value: "650 RPM"),
+            CarInfo(unit: .UnitkPA, name: "Fuel Pressure", value: "413 kPA"),
+            CarInfo(unit: .UnitkPA, name: "Intake Pressure", value: "74.5 kPA"),
         ]
         
-        return CarInfoGroup(name: "Engine", attributes: info, status: 2)
+        return CarInfoGroup(name: "Engine", attributes: info, dateTime: Date())
         
     }
     
+    // JSON STRUCTURE
+    /**
+     {
+         "all": {
+             "error_codes": {
+                 
+             },
+             
+             "engine_codes": {
+                 "FUEL_PRESSURE": {
+                     "unit" : "Unit.kPA",
+                     "value": 413.2
+                 }
+             },
+                 
+             "other_codes": {
+                     
+             }
+         }
+     }
+     */
+    
     /* MARK: - Real Data */
-    public static func getDataOf(endpoint ep: Endpoint) -> CarInfoGroup? {
+    /* @escaping keyword let the closure executes asynchronously on dispatch queue
+     * that will hold the closure in memory, to be used in future
+     */
+    public static func getDataOf(endpoint ep: Endpoint, completion: @escaping (CarInfoGroup) -> Void) {
         
         let endp = convertEndpoint(ep)
+        let ref = Database.database().reference().child("all\(endp)")
         
-        let ref = Database.database().reference()
+        // for now the trouble codes are absent
+        var carInfoGroup = CarInfoGroup(name: endp, attributes: [], dateTime: Date())
         
         /* retrieving data when data is changing inside the specified endpoint */
-        _ = ref.child("all\(endp)").observe(DataEventType.value) { (snapshot) in
-            // snapshot handler
+        ref.observe(DataEventType.value) { (snapshot) in
             
-            let snapshotValue = snapshot.value as? NSDictionary
+            // start with empty array
+            carInfoGroup.attributes.removeAll()
             
             if snapshot.exists() {
                 /* MARK: - TODO Parsing the snapshot to a CarInfoGroup Data type */
                 
-                // unwrapping because we're sure that snapshot exists
-                print(snapshotValue!)
+                // if the endpoint is error codes, then we're expecting "error_code" : "error_name" objects
+                
+                if (ep == .ErrorCodes) {
+                    let data = snapshot.value! as? [String: String]
+                } else {
+                    
+                    // if the endpoint is not an error code, we're expecting "info_name" : {ObdValueType, "value"}
+                    let dataKey = snapshot.key
+                    let dataValue = snapshot.value! as? [String: AnyObject]
+                    
+                    // Now I can cast AnyObject to CarInfo
+                    let carInfo = [CarInfo]()
+                    carInfoGroup.attributes = carInfo
+                    
+                }
+                
             } else {
                 print("No data available at 'all\(endp)'")
             }
         }
-        
-        return nil
         
     }
     

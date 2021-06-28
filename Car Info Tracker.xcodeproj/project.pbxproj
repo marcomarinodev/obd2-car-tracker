@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A6420C6DD4EEB48D0AD1B79B /* Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9272BE73D68FDA4D6C88E92 /* Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework */; };
 		A8541F53268637A300FF064C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8541F52268637A300FF064C /* AppDelegate.swift */; };
 		A8541F55268637A300FF064C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8541F54268637A300FF064C /* SceneDelegate.swift */; };
-		A8541F57268637A300FF064C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8541F56268637A300FF064C /* ViewController.swift */; };
+		A8541F57268637A300FF064C /* CarInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8541F56268637A300FF064C /* CarInfoViewController.swift */; };
 		A8541F5A268637A300FF064C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8541F58268637A300FF064C /* Main.storyboard */; };
 		A8541F5C268637A300FF064C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8541F5B268637A300FF064C /* Assets.xcassets */; };
 		A8541F5F268637A300FF064C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8541F5D268637A300FF064C /* LaunchScreen.storyboard */; };
@@ -54,7 +54,7 @@
 		A8541F4F268637A300FF064C /* Car Info Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Info Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8541F52268637A300FF064C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8541F54268637A300FF064C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A8541F56268637A300FF064C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A8541F56268637A300FF064C /* CarInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoViewController.swift; sourceTree = "<group>"; };
 		A8541F59268637A300FF064C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8541F5B268637A300FF064C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8541F5E268637A300FF064C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -136,6 +136,8 @@
 		A8541F51268637A300FF064C /* Car Info Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				A8A5E2E3268713EC00D6D3EF /* ViewModel */,
+				A8A5E2E02687126A00D6D3EF /* Utilities */,
 				A8541F8F2686726500FF064C /* GoogleService-Info.plist */,
 				A8541F8D2686658300FF064C /* FirebaseStructure.json */,
 				A8541F5D268637A300FF064C /* LaunchScreen.storyboard */,
@@ -188,7 +190,7 @@
 		A8541F84268637BD00FF064C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A8541F56268637A300FF064C /* ViewController.swift */,
+				A8541F56268637A300FF064C /* CarInfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -210,6 +212,20 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A8A5E2E02687126A00D6D3EF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A8A5E2E3268713EC00D6D3EF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E7A9D819FC194F59A6B05BF3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,7 +236,6 @@
 				91BB89E87A101F4956436DAD /* Pods-Car Info TrackerTests.debug.xcconfig */,
 				7798A5BC62A3D14A42BDF7DB /* Pods-Car Info TrackerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -466,7 +481,7 @@
 			files = (
 				A8541F8C26865FCC00FF064C /* CarInfoGroupData.swift in Sources */,
 				A8541F882686397C00FF064C /* CarInfo.swift in Sources */,
-				A8541F57268637A300FF064C /* ViewController.swift in Sources */,
+				A8541F57268637A300FF064C /* CarInfoViewController.swift in Sources */,
 				A8541F8A26865DCF00FF064C /* CarInfoGroup.swift in Sources */,
 				A8541F53268637A300FF064C /* AppDelegate.swift in Sources */,
 				A8541F55268637A300FF064C /* SceneDelegate.swift in Sources */,

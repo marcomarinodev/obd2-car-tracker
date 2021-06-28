@@ -12,10 +12,9 @@ import Foundation
  
  + name: group name
  + attributes: collection of info about this group
- + status: an integer showing the number of troubles in this group
  */
 public struct CarInfoGroup {
-    public let name: String
-    public let attributes: [CarInfo]
-    public let status: Int
+    public var name: String
+    public var attributes: [CarInfo]
+    public let dateTime: Date
 }

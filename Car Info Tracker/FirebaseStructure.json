@@ -5,7 +5,10 @@
         },
         
         "engine_codes": {
-                
+            "FUEL_PRESSURE": {
+                "unit" : "Unit.kPA",
+                "value": 413.2
+            }
         },
             
         "other_codes": {
