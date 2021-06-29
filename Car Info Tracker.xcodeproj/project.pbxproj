@@ -21,6 +21,16 @@
 		A8541F8C26865FCC00FF064C /* CarInfoGroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8541F8B26865FCC00FF064C /* CarInfoGroupData.swift */; };
 		A8541F8E2686658300FF064C /* FirebaseStructure.json in Resources */ = {isa = PBXBuildFile; fileRef = A8541F8D2686658300FF064C /* FirebaseStructure.json */; };
 		A8541F902686726500FF064C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8541F8F2686726500FF064C /* GoogleService-Info.plist */; };
+		A8A5E2E7268B305000D6D3EF /* SelectModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E2E6268B305000D6D3EF /* SelectModeViewController.swift */; };
+		A8A5E2EA268B577600D6D3EF /* ModeSelectorStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E2E9268B577600D6D3EF /* ModeSelectorStrategy.swift */; };
+		A8A5E2FA268B6FA200D6D3EF /* CarInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E2F8268B6FA200D6D3EF /* CarInfoViewCell.swift */; };
+		A8A5E2FB268B6FA200D6D3EF /* CarInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8A5E2F9268B6FA200D6D3EF /* CarInfoViewCell.xib */; };
+		A8A5E2FE268B730E00D6D3EF /* TroubleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E2FC268B730E00D6D3EF /* TroubleViewCell.swift */; };
+		A8A5E2FF268B730E00D6D3EF /* TroubleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8A5E2FD268B730E00D6D3EF /* TroubleViewCell.xib */; };
+		A8A5E302268B77EC00D6D3EF /* MosaicMenuLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E301268B77EC00D6D3EF /* MosaicMenuLayout.swift */; };
+		A8A5E304268B798600D6D3EF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E303268B798600D6D3EF /* Utilities.swift */; };
+		A8A5E30A268B7ED000D6D3EF /* ModeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E309268B7ED000D6D3EF /* ModeCollectionViewCell.swift */; };
+		A8A5E30D268B86A300D6D3EF /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E30C268B86A300D6D3EF /* Mode.swift */; };
 		E591DD64672D17A17554C42F /* Pods_Car_Info_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1150EC4100B6EEB7899E4D8D /* Pods_Car_Info_TrackerTests.framework */; };
 		EBBE4166BAAE39AF050DBE3B /* Pods_Car_Info_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD7A07070033DCEE3DC4B65 /* Pods_Car_Info_Tracker.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +80,16 @@
 		A8541F8B26865FCC00FF064C /* CarInfoGroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoGroupData.swift; sourceTree = "<group>"; };
 		A8541F8D2686658300FF064C /* FirebaseStructure.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FirebaseStructure.json; sourceTree = "<group>"; };
 		A8541F8F2686726500FF064C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A8A5E2E6268B305000D6D3EF /* SelectModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeViewController.swift; sourceTree = "<group>"; };
+		A8A5E2E9268B577600D6D3EF /* ModeSelectorStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectorStrategy.swift; sourceTree = "<group>"; };
+		A8A5E2F8268B6FA200D6D3EF /* CarInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoViewCell.swift; sourceTree = "<group>"; };
+		A8A5E2F9268B6FA200D6D3EF /* CarInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarInfoViewCell.xib; sourceTree = "<group>"; };
+		A8A5E2FC268B730E00D6D3EF /* TroubleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroubleViewCell.swift; sourceTree = "<group>"; };
+		A8A5E2FD268B730E00D6D3EF /* TroubleViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TroubleViewCell.xib; sourceTree = "<group>"; };
+		A8A5E301268B77EC00D6D3EF /* MosaicMenuLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosaicMenuLayout.swift; sourceTree = "<group>"; };
+		A8A5E303268B798600D6D3EF /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		A8A5E309268B7ED000D6D3EF /* ModeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeCollectionViewCell.swift; sourceTree = "<group>"; };
+		A8A5E30C268B86A300D6D3EF /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		C9272BE73D68FDA4D6C88E92 /* Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -136,7 +156,7 @@
 		A8541F51268637A300FF064C /* Car Info Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				A8A5E2E3268713EC00D6D3EF /* ViewModel */,
+				A8A5E2E8268B576000D6D3EF /* Strategies */,
 				A8A5E2E02687126A00D6D3EF /* Utilities */,
 				A8541F8F2686726500FF064C /* GoogleService-Info.plist */,
 				A8541F8D2686658300FF064C /* FirebaseStructure.json */,
@@ -176,6 +196,7 @@
 				A8541F872686397C00FF064C /* CarInfo.swift */,
 				A8541F8926865DCF00FF064C /* CarInfoGroup.swift */,
 				A8541F8B26865FCC00FF064C /* CarInfoGroupData.swift */,
+				A8A5E30C268B86A300D6D3EF /* Mode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,6 +204,12 @@
 		A8541F83268637B700FF064C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A8A5E300268B77C400D6D3EF /* Layouts */,
+				A8A5E2F8268B6FA200D6D3EF /* CarInfoViewCell.swift */,
+				A8A5E2F9268B6FA200D6D3EF /* CarInfoViewCell.xib */,
+				A8A5E2FC268B730E00D6D3EF /* TroubleViewCell.swift */,
+				A8A5E2FD268B730E00D6D3EF /* TroubleViewCell.xib */,
+				A8A5E309268B7ED000D6D3EF /* ModeCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				A8541F56268637A300FF064C /* CarInfoViewController.swift */,
+				A8A5E2E6268B305000D6D3EF /* SelectModeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -215,15 +243,25 @@
 		A8A5E2E02687126A00D6D3EF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A8A5E303268B798600D6D3EF /* Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		A8A5E2E3268713EC00D6D3EF /* ViewModel */ = {
+		A8A5E2E8268B576000D6D3EF /* Strategies */ = {
 			isa = PBXGroup;
 			children = (
+				A8A5E2E9268B577600D6D3EF /* ModeSelectorStrategy.swift */,
 			);
-			path = ViewModel;
+			path = Strategies;
+			sourceTree = "<group>";
+		};
+		A8A5E300268B77C400D6D3EF /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				A8A5E301268B77EC00D6D3EF /* MosaicMenuLayout.swift */,
+			);
+			path = Layouts;
 			sourceTree = "<group>";
 		};
 		E7A9D819FC194F59A6B05BF3 /* Pods */ = {
@@ -348,10 +386,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8541F5F268637A300FF064C /* LaunchScreen.storyboard in Resources */,
+				A8A5E2FF268B730E00D6D3EF /* TroubleViewCell.xib in Resources */,
 				A8541F5C268637A300FF064C /* Assets.xcassets in Resources */,
 				A8541F902686726500FF064C /* GoogleService-Info.plist in Resources */,
 				A8541F5A268637A300FF064C /* Main.storyboard in Resources */,
 				A8541F8E2686658300FF064C /* FirebaseStructure.json in Resources */,
+				A8A5E2FB268B6FA200D6D3EF /* CarInfoViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,12 +519,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8A5E30A268B7ED000D6D3EF /* ModeCollectionViewCell.swift in Sources */,
 				A8541F8C26865FCC00FF064C /* CarInfoGroupData.swift in Sources */,
 				A8541F882686397C00FF064C /* CarInfo.swift in Sources */,
+				A8A5E302268B77EC00D6D3EF /* MosaicMenuLayout.swift in Sources */,
 				A8541F57268637A300FF064C /* CarInfoViewController.swift in Sources */,
 				A8541F8A26865DCF00FF064C /* CarInfoGroup.swift in Sources */,
+				A8A5E30D268B86A300D6D3EF /* Mode.swift in Sources */,
 				A8541F53268637A300FF064C /* AppDelegate.swift in Sources */,
+				A8A5E304268B798600D6D3EF /* Utilities.swift in Sources */,
+				A8A5E2E7268B305000D6D3EF /* SelectModeViewController.swift in Sources */,
+				A8A5E2EA268B577600D6D3EF /* ModeSelectorStrategy.swift in Sources */,
 				A8541F55268637A300FF064C /* SceneDelegate.swift in Sources */,
+				A8A5E2FA268B6FA200D6D3EF /* CarInfoViewCell.swift in Sources */,
+				A8A5E2FE268B730E00D6D3EF /* TroubleViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

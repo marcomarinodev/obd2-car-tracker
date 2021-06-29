@@ -9,6 +9,15 @@ import UIKit
 
 class CarInfoViewController: UIViewController {
     
+    // MARK: - Strategy
+    public var modeSelectorStrategy: ModeSelectorStrategy! {
+        
+        didSet {
+            navigationItem.title = modeSelectorStrategy.title
+        }
+        
+    }
+    
     // MARK: - STUB
     var groupModel: CarInfoGroup!
     
