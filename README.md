@@ -2,12 +2,14 @@
 
 ### TODO
 
+- Create history of data in order to understand when a trouble error occurred and in which condition (low fuel pressure, ...)
 - CarInfoView (UI)
     - Set some effects when model changes
 - Implement Authentication
     - Implement Authentication UI
     - Authentication Model
     - For every user is reserved a space where its car info persist
+        - (Optional) Every user can store multiple car data
     - Automatic log in  
     - Log in with Google, Apple
 
