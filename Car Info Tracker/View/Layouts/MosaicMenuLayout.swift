@@ -43,24 +43,31 @@ public class MosaicMenuLayout: UICollectionViewLayout {
         var currentIndex = 0
         var segment: MosaicSegmentStyle = .fullWidth
         var lastFrame: CGRect = .zero
+        
+        // Padding between tiles
         let verticalSpacing: CGFloat = 15.0
         let horizontalSpacing: CGFloat = 15.0
+        
         let cvWidth = cv.bounds.size.width - 30
         
         while currentIndex < count {
             
+            // 20 due to rounded corners
             var segmentFrame = CGRect(x: 20, y: lastFrame.maxY + verticalSpacing, width: cvWidth, height: 200.0)
             
             var segmentRects = [CGRect]()
             
             switch segment {
             case .fullWidth:
+                // Padding for a full width tile
                 segmentFrame = CGRect(origin: segmentFrame.origin, size: CGSize(width: segmentFrame.width - horizontalSpacing, height: segmentFrame.height - verticalSpacing))
+                
                 segmentRects = [segmentFrame]
                 
             case .fiftyFifty:
                 var horizontalSlices = segmentFrame.dividedIntegral(fraction: 0.5, from: .minXEdge)
                 
+                // Paddings two 1/2 tiles
                 horizontalSlices.first = CGRect(origin: horizontalSlices.first.origin, size: CGSize(width: horizontalSlices.first.width - horizontalSpacing, height: horizontalSlices.first.height - verticalSpacing))
                 
                 horizontalSlices.second = CGRect(origin: horizontalSlices.second.origin, size: CGSize(width: horizontalSlices.second.width - horizontalSpacing, height: horizontalSlices.second.height - verticalSpacing))
@@ -68,11 +75,17 @@ public class MosaicMenuLayout: UICollectionViewLayout {
                 segmentRects = [horizontalSlices.first, horizontalSlices.second]
                 
             case .twoThirdsOneThird:
+                
+                // MARK: - ADD PADDINGS HERE
+                
                 let horizontalSlices = segmentFrame.dividedIntegral(fraction: (2.0 / 3.0), from: .minXEdge)
                 let verticalSlices = horizontalSlices.second.dividedIntegral(fraction: 0.5, from: .minYEdge)
                 segmentRects = [horizontalSlices.first, verticalSlices.first, verticalSlices.second]
                 
             case .oneThirdTwoThirds:
+                
+                // MARK: - ADD PADDINGS HERE
+                
                 let horizontalSlices = segmentFrame.dividedIntegral(fraction: (1.0 / 3.0), from: .minXEdge)
                 let verticalSlices = horizontalSlices.first.dividedIntegral(fraction: 0.5, from: .minYEdge)
                 segmentRects = [verticalSlices.first, verticalSlices.second, horizontalSlices.second]
@@ -91,6 +104,7 @@ public class MosaicMenuLayout: UICollectionViewLayout {
             }
             
             // Determine the next segment style.
+            // MARK: - FIX THE TILES ORDER
             switch count - currentIndex {
             case 1:
                 segment = .fullWidth

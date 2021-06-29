@@ -3,6 +3,7 @@
 ### TODO
 
 - Create SelectMode UI
+     - add remaining paddings (1/3 and 2/3 tiles)
      - adjust icons and size of imageView inside mosaic tiles
 - Create history of data in order to understand when a trouble error occurred and in which condition (low fuel pressure, ...)
 - CarInfoView (UI)
