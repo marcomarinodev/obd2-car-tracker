@@ -63,50 +63,80 @@ extension CarInfoGroup {
      */
     
     /* MARK: - Real Data */
+    static func checkConnection(completion: @escaping (Bool) -> Void) {
+        
+        /*
+         * Firebase Realtime DB provides an endpoint /.info/connected which is
+         * updated every time the DB client's connection state changes. It returns a boolean
+         * value which is not synchronized between clients because the value is
+         * dependent on the state of the this client. If one client reads this
+         * endpoint as false, this is no guarantee that a separate client will
+         * also read false.
+         */
+        let connectedRef = Database.database().reference(withPath: ".info/connected")
+        
+        connectedRef.observe(.value) { snapshot in
+            if (snapshot.value as? Bool ?? false) {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
+    }
+    
     /* @escaping keyword let the closure executes asynchronously on dispatch queue
      * that will hold the closure in memory, to be used in future
      */
     public static func getDataOf(endpoint ep: Endpoint, completion: @escaping (CarInfoGroup) -> Void) {
         
-        let endp = ep.rawValue
-        let ref = Database.database().reference().child("all\(endp)")
-        
-        // for now the trouble codes are absent
-        var carInfoGroup = CarInfoGroup(name: endp, attributes: [], dateTime: Date())
-        
-        /* retrieving data when data is changing inside the specified endpoint */
-        ref.observe(DataEventType.value) { (snapshot) in
-            
-            print("DATABASE UPDATE")
-            
-            // start with empty array
-            carInfoGroup.attributes.removeAll()
-            
-            if snapshot.exists() {
-                /* Parsing the snapshot to a CarInfoGroup Data type */
+        // check connection before do anything
+        checkConnection { connected in
+            if (connected) {
+                print("connected")
                 
-                // print("\n\(snapshot.value!)\n")
+                let endp = ep.rawValue
+                let ref = Database.database().reference().child("all\(endp)")
                 
-                let dict = snapshot.value! as? [String: AnyObject]
+                // for now the trouble codes are absent
+                var carInfoGroup = CarInfoGroup(name: endp, attributes: [], dateTime: Date())
                 
-                for child in dict! {
+                /* retrieving data when data is changing inside the specified endpoint */
+                ref.observe(DataEventType.value) { (snapshot) in
                     
-                    print("\n\(child)\n")
+                    print("DATABASE UPDATE")
                     
-                    if let carInfoItem = CarInfo(item: child) {
+                    // start with empty array
+                    carInfoGroup.attributes.removeAll()
+                    
+                    if snapshot.exists() {
+                        /* Parsing the snapshot to a CarInfoGroup Data type */
                         
-                        carInfoGroup.attributes.append(carInfoItem)
+                        let dict = snapshot.value! as? [String: AnyObject]
                         
+                        for child in dict! {
+                            
+                            print("\n\(child)\n")
+                            
+                            if let carInfoItem = CarInfo(item: child) {
+                                
+                                carInfoGroup.attributes.append(carInfoItem)
+                                
+                            }
+                            
+                        }
+                        
+                        completion(carInfoGroup)
+                        
+                    } else {
+                        print("\nNo data available at 'all\(endp)'\n")
                     }
-                    
                 }
                 
-                completion(carInfoGroup)
                 
-            } else {
-                print("\nNo data available at 'all\(endp)'\n")
             }
         }
+        
+        
         
     }
     

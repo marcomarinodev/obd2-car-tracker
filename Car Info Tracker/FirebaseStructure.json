@@ -1,22 +1,20 @@
 {
-    "all": {
-        "error_codes": {
-            "P0141" : "O2 Sensor Heater Circuit Malfunction (Bank 1, Sensor 2)"
-        },
-        
-        "engine_codes": {
-            "FUEL_PRESSURE": {
-                "unit" : "Unit.kPA",
-                "value": 413.2
-            }
-        },
-        
-        "chassis_codes": {
-            
-        },
-            
-        "other_codes": {
-            "CAR_MODEL" : "Renault Clio 2021 Hybrid"
-        }
+  "all" : {
+    "engine_codes" : {
+      "FUEL_PRESSURE" : {
+        "unit" : "u.kpa",
+        "value" : "415.2"
+      },
+      "SPEED" : {
+        "unit" : "u.kph",
+        "value" : "152.7"
+      }
+    },
+    "error_codes" : {
+      "P0141" : "O2 Sensor Heater Circuit Malfunction (Bank 1, Sensor 2)"
+    },
+    "other_codes" : {
+      "CAR_MODEL" : "Renault Clio 2021 Hybrid"
     }
+  }
 }

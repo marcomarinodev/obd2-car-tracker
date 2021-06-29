@@ -10,7 +10,7 @@ import UIKit
 class CarInfoViewController: UIViewController {
     
     // MARK: - STUB
-    var group: CarInfoGroup!
+    var groupModel: CarInfoGroup!
     
     override func viewDidLoad() {
         super.viewDidLoad()
