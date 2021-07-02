@@ -41,7 +41,7 @@ public class MosaicMenuLayout: UICollectionViewLayout {
         let count = cv.numberOfItems(inSection: 0)
         
         var currentIndex = 0
-        var segment: MosaicSegmentStyle = .fullWidth
+        var segment: MosaicSegmentStyle = .twoThirdsOneThird
         var lastFrame: CGRect = .zero
         
         // Padding between tiles
@@ -60,7 +60,13 @@ public class MosaicMenuLayout: UICollectionViewLayout {
             switch segment {
             case .fullWidth:
                 // Padding for a full width tile
-                segmentFrame = CGRect(origin: segmentFrame.origin, size: CGSize(width: segmentFrame.width - horizontalSpacing, height: segmentFrame.height - verticalSpacing))
+                segmentFrame = CGRect(
+                    origin: segmentFrame.origin,
+                    size: CGSize(
+                        width: segmentFrame.width - horizontalSpacing,
+                        height: segmentFrame.height - verticalSpacing
+                    )
+                )
                 
                 segmentRects = [segmentFrame]
                 
@@ -68,26 +74,86 @@ public class MosaicMenuLayout: UICollectionViewLayout {
                 var horizontalSlices = segmentFrame.dividedIntegral(fraction: 0.5, from: .minXEdge)
                 
                 // Paddings two 1/2 tiles
-                horizontalSlices.first = CGRect(origin: horizontalSlices.first.origin, size: CGSize(width: horizontalSlices.first.width - horizontalSpacing, height: horizontalSlices.first.height - verticalSpacing))
+                horizontalSlices.first = CGRect(
+                    origin: horizontalSlices.first.origin,
+                    size: CGSize(
+                        width: horizontalSlices.first.width - horizontalSpacing,
+                        height: horizontalSlices.first.height - verticalSpacing
+                    )
+                )
                 
-                horizontalSlices.second = CGRect(origin: horizontalSlices.second.origin, size: CGSize(width: horizontalSlices.second.width - horizontalSpacing, height: horizontalSlices.second.height - verticalSpacing))
+                horizontalSlices.second = CGRect(
+                    origin: horizontalSlices.second.origin,
+                    size: CGSize(
+                        width: horizontalSlices.second.width - horizontalSpacing,
+                        height: horizontalSlices.second.height - verticalSpacing
+                    )
+                )
                 
                 segmentRects = [horizontalSlices.first, horizontalSlices.second]
                 
             case .twoThirdsOneThird:
                 
-                // MARK: - ADD PADDINGS HERE
+                var horizontalSlices = segmentFrame.dividedIntegral(fraction: (2.0 / 3.0), from: .minXEdge)
                 
-                let horizontalSlices = segmentFrame.dividedIntegral(fraction: (2.0 / 3.0), from: .minXEdge)
-                let verticalSlices = horizontalSlices.second.dividedIntegral(fraction: 0.5, from: .minYEdge)
+                horizontalSlices.first = CGRect(
+                    origin: horizontalSlices.first.origin,
+                    size: CGSize(
+                        width: horizontalSlices.first.width - horizontalSpacing,
+                        height: horizontalSlices.first.height - verticalSpacing
+                    )
+                )
+                
+                var verticalSlices = horizontalSlices.second.dividedIntegral(fraction: 0.5, from: .minYEdge)
+                
+                verticalSlices.first = CGRect(
+                    origin: verticalSlices.first.origin,
+                    size: CGSize(
+                        width: verticalSlices.first.width - horizontalSpacing,
+                        height: verticalSlices.first.height - verticalSpacing
+                    )
+                )
+                
+                verticalSlices.second = CGRect(
+                    origin: verticalSlices.second.origin,
+                    size: CGSize(
+                        width: verticalSlices.second.width - horizontalSpacing,
+                        height: verticalSlices.second.height - verticalSpacing
+                    )
+                )
+                
                 segmentRects = [horizontalSlices.first, verticalSlices.first, verticalSlices.second]
                 
             case .oneThirdTwoThirds:
                 
-                // MARK: - ADD PADDINGS HERE
+                var horizontalSlices = segmentFrame.dividedIntegral(fraction: (1.0 / 3.0), from: .minXEdge)
                 
-                let horizontalSlices = segmentFrame.dividedIntegral(fraction: (1.0 / 3.0), from: .minXEdge)
-                let verticalSlices = horizontalSlices.first.dividedIntegral(fraction: 0.5, from: .minYEdge)
+                horizontalSlices.first = CGRect(
+                    origin: horizontalSlices.first.origin,
+                    size: CGSize(
+                        width: horizontalSlices.first.width - horizontalSpacing,
+                        height: horizontalSlices.first.height - verticalSpacing
+                    )
+                )
+                
+                var verticalSlices = horizontalSlices.first.dividedIntegral(fraction: 0.5, from: .minYEdge)
+                
+                verticalSlices.first = CGRect(
+                    origin: verticalSlices.first.origin,
+                    size: CGSize(
+                        width: verticalSlices.first.width - horizontalSpacing,
+                        height: verticalSlices.first.height - verticalSpacing
+                    )
+                )
+                
+                verticalSlices.second = CGRect(
+                    origin: verticalSlices.second.origin,
+                    size: CGSize(
+                        width: verticalSlices.second.width - horizontalSpacing,
+                        height: verticalSlices.second.height - verticalSpacing
+                    )
+                )
+                
                 segmentRects = [verticalSlices.first, verticalSlices.second, horizontalSlices.second]
             }
             

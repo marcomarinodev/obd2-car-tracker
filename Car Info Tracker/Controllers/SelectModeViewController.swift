@@ -10,12 +10,19 @@ import UIKit
 public class SelectModeViewController: UICollectionViewController {
     
     var menuItems = [Mode]()
+    var selectModeView: SelectModeView!
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        selectModeView = SelectModeView(cv: self)
+        
         menuItems = Mode.getModes()
-        setupMosaicCollectionView()
+        
+        selectModeView.setupMosaicCollectionView()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
     }
     
@@ -45,31 +52,6 @@ public class SelectModeViewController: UICollectionViewController {
         
         return cell
         
-    }
-    
-    private func setupMosaicCollectionView() {
-        // create an instance of the cv layout
-        let mosaicLayout = MosaicMenuLayout()
-        
-        // init
-        collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: mosaicLayout)
-        
-        // properties
-        collectionView.backgroundColor = .white
-        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.alwaysBounceVertical = true
-        collectionView.indicatorStyle = .default
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        // register the custom cell
-        collectionView.register(ModeCollectionViewCell.self, forCellWithReuseIdentifier: ModeCollectionViewCell.identifier)
-        
-        // add collection view as subview of this view
-        self.view.addSubview(collectionView)
-        
-        // set the navigation title
-        self.navigationItem.title = "Car Info Tracker"
     }
     
 }

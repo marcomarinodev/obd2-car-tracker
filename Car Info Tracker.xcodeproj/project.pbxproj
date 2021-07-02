@@ -31,6 +31,7 @@
 		A8A5E304268B798600D6D3EF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E303268B798600D6D3EF /* Utilities.swift */; };
 		A8A5E30A268B7ED000D6D3EF /* ModeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E309268B7ED000D6D3EF /* ModeCollectionViewCell.swift */; };
 		A8A5E30D268B86A300D6D3EF /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E30C268B86A300D6D3EF /* Mode.swift */; };
+		A8D4FEC4268EFB3F0005F7A3 /* SelectModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4FEC3268EFB3F0005F7A3 /* SelectModeView.swift */; };
 		E591DD64672D17A17554C42F /* Pods_Car_Info_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1150EC4100B6EEB7899E4D8D /* Pods_Car_Info_TrackerTests.framework */; };
 		EBBE4166BAAE39AF050DBE3B /* Pods_Car_Info_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD7A07070033DCEE3DC4B65 /* Pods_Car_Info_Tracker.framework */; };
 /* End PBXBuildFile section */
@@ -90,6 +91,7 @@
 		A8A5E303268B798600D6D3EF /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		A8A5E309268B7ED000D6D3EF /* ModeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8A5E30C268B86A300D6D3EF /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
+		A8D4FEC3268EFB3F0005F7A3 /* SelectModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeView.swift; sourceTree = "<group>"; };
 		C9272BE73D68FDA4D6C88E92 /* Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -210,6 +212,7 @@
 				A8A5E2FC268B730E00D6D3EF /* TroubleViewCell.swift */,
 				A8A5E2FD268B730E00D6D3EF /* TroubleViewCell.xib */,
 				A8A5E309268B7ED000D6D3EF /* ModeCollectionViewCell.swift */,
+				A8D4FEC3268EFB3F0005F7A3 /* SelectModeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				A8A5E304268B798600D6D3EF /* Utilities.swift in Sources */,
 				A8A5E2E7268B305000D6D3EF /* SelectModeViewController.swift in Sources */,
 				A8A5E2EA268B577600D6D3EF /* ModeSelectorStrategy.swift in Sources */,
+				A8D4FEC4268EFB3F0005F7A3 /* SelectModeView.swift in Sources */,
 				A8541F55268637A300FF064C /* SceneDelegate.swift in Sources */,
 				A8A5E2FA268B6FA200D6D3EF /* CarInfoViewCell.swift in Sources */,
 				A8A5E2FE268B730E00D6D3EF /* TroubleViewCell.swift in Sources */,
