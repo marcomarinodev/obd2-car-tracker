@@ -22,7 +22,6 @@
 		A8541F8E2686658300FF064C /* FirebaseStructure.json in Resources */ = {isa = PBXBuildFile; fileRef = A8541F8D2686658300FF064C /* FirebaseStructure.json */; };
 		A8541F902686726500FF064C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8541F8F2686726500FF064C /* GoogleService-Info.plist */; };
 		A8A5E2E7268B305000D6D3EF /* SelectModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E2E6268B305000D6D3EF /* SelectModeViewController.swift */; };
-		A8A5E2EA268B577600D6D3EF /* ModeSelectorStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E2E9268B577600D6D3EF /* ModeSelectorStrategy.swift */; };
 		A8A5E2FA268B6FA200D6D3EF /* CarInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E2F8268B6FA200D6D3EF /* CarInfoViewCell.swift */; };
 		A8A5E2FB268B6FA200D6D3EF /* CarInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8A5E2F9268B6FA200D6D3EF /* CarInfoViewCell.xib */; };
 		A8A5E2FE268B730E00D6D3EF /* TroubleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E2FC268B730E00D6D3EF /* TroubleViewCell.swift */; };
@@ -32,6 +31,8 @@
 		A8A5E30A268B7ED000D6D3EF /* ModeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E309268B7ED000D6D3EF /* ModeCollectionViewCell.swift */; };
 		A8A5E30D268B86A300D6D3EF /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E30C268B86A300D6D3EF /* Mode.swift */; };
 		A8D4FEC4268EFB3F0005F7A3 /* SelectModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4FEC3268EFB3F0005F7A3 /* SelectModeView.swift */; };
+		A8D4FEC62690C1620005F7A3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4FEC52690C1620005F7A3 /* Errors.swift */; };
+		A8D4FEC82690C4790005F7A3 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4FEC72690C4790005F7A3 /* Enums.swift */; };
 		E591DD64672D17A17554C42F /* Pods_Car_Info_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1150EC4100B6EEB7899E4D8D /* Pods_Car_Info_TrackerTests.framework */; };
 		EBBE4166BAAE39AF050DBE3B /* Pods_Car_Info_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD7A07070033DCEE3DC4B65 /* Pods_Car_Info_Tracker.framework */; };
 /* End PBXBuildFile section */
@@ -82,7 +83,6 @@
 		A8541F8D2686658300FF064C /* FirebaseStructure.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FirebaseStructure.json; sourceTree = "<group>"; };
 		A8541F8F2686726500FF064C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A8A5E2E6268B305000D6D3EF /* SelectModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeViewController.swift; sourceTree = "<group>"; };
-		A8A5E2E9268B577600D6D3EF /* ModeSelectorStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectorStrategy.swift; sourceTree = "<group>"; };
 		A8A5E2F8268B6FA200D6D3EF /* CarInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoViewCell.swift; sourceTree = "<group>"; };
 		A8A5E2F9268B6FA200D6D3EF /* CarInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarInfoViewCell.xib; sourceTree = "<group>"; };
 		A8A5E2FC268B730E00D6D3EF /* TroubleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroubleViewCell.swift; sourceTree = "<group>"; };
@@ -92,6 +92,8 @@
 		A8A5E309268B7ED000D6D3EF /* ModeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8A5E30C268B86A300D6D3EF /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		A8D4FEC3268EFB3F0005F7A3 /* SelectModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeView.swift; sourceTree = "<group>"; };
+		A8D4FEC52690C1620005F7A3 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		A8D4FEC72690C4790005F7A3 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		C9272BE73D68FDA4D6C88E92 /* Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -158,7 +160,6 @@
 		A8541F51268637A300FF064C /* Car Info Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				A8A5E2E8268B576000D6D3EF /* Strategies */,
 				A8A5E2E02687126A00D6D3EF /* Utilities */,
 				A8541F8F2686726500FF064C /* GoogleService-Info.plist */,
 				A8541F8D2686658300FF064C /* FirebaseStructure.json */,
@@ -247,16 +248,10 @@
 			isa = PBXGroup;
 			children = (
 				A8A5E303268B798600D6D3EF /* Utilities.swift */,
+				A8D4FEC52690C1620005F7A3 /* Errors.swift */,
+				A8D4FEC72690C4790005F7A3 /* Enums.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		A8A5E2E8268B576000D6D3EF /* Strategies */ = {
-			isa = PBXGroup;
-			children = (
-				A8A5E2E9268B577600D6D3EF /* ModeSelectorStrategy.swift */,
-			);
-			path = Strategies;
 			sourceTree = "<group>";
 		};
 		A8A5E300268B77C400D6D3EF /* Layouts */ = {
@@ -523,6 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8A5E30A268B7ED000D6D3EF /* ModeCollectionViewCell.swift in Sources */,
+				A8D4FEC62690C1620005F7A3 /* Errors.swift in Sources */,
 				A8541F8C26865FCC00FF064C /* CarInfoGroupData.swift in Sources */,
 				A8541F882686397C00FF064C /* CarInfo.swift in Sources */,
 				A8A5E302268B77EC00D6D3EF /* MosaicMenuLayout.swift in Sources */,
@@ -532,10 +528,10 @@
 				A8541F53268637A300FF064C /* AppDelegate.swift in Sources */,
 				A8A5E304268B798600D6D3EF /* Utilities.swift in Sources */,
 				A8A5E2E7268B305000D6D3EF /* SelectModeViewController.swift in Sources */,
-				A8A5E2EA268B577600D6D3EF /* ModeSelectorStrategy.swift in Sources */,
 				A8D4FEC4268EFB3F0005F7A3 /* SelectModeView.swift in Sources */,
 				A8541F55268637A300FF064C /* SceneDelegate.swift in Sources */,
 				A8A5E2FA268B6FA200D6D3EF /* CarInfoViewCell.swift in Sources */,
+				A8D4FEC82690C4790005F7A3 /* Enums.swift in Sources */,
 				A8A5E2FE268B730E00D6D3EF /* TroubleViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -642,7 +638,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -697,7 +693,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

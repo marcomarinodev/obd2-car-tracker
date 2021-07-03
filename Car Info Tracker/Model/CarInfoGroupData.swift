@@ -8,21 +8,6 @@
 import Foundation
 import FirebaseDatabase
 
-/**
- Enum that represents possible endpoints
- */
-
-/*
- I can extend the endpoint enum without changing anything
- */
-public enum Endpoint: String {
-    case All = ""
-    case Engine = "/engine_codes"
-    case Chassis = "/chassis_codes"
-    case ErrorCodes = "/error_codes"
-    case Other = "/other_codes"
-}
-
 extension CarInfoGroup {
     
     /* MARK: - Mock Data */

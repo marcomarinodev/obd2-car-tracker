@@ -31,6 +31,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionViewCellContentView>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="toInfo" id="vdZ-W9-MgP"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -39,9 +42,6 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="xWC-p5-gJk"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" id="kV1-0a-L4z"/>
-                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JSS-pX-2Pl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

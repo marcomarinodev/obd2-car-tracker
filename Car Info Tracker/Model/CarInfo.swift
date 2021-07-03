@@ -9,32 +9,6 @@ import Foundation
 import FirebaseDatabase
 
 /**
- Enum representing obd response value types with String as raw value
- 
- + StringLiteral "" (fuel status, air status, ...)
- + Percent % (fuel level, evaporative_purge, ...)
- + Celsius °C (intake temp, catalyst temp, ...)
- + RPM
- + KPH
- + kPA (fuel pressure, intake pressure, ...)
- + Volt (Oxygen Bank n - Sensor k voltage, ...)
- + KM (Distance traveled since codes cleared, ...)
- + mA (Oxygen Sensor 1 WR Lambda Current, ...)
- */
-public enum ObdValueType: String {
-    case None = "none"
-    case UnitPercent = "u.percent"
-    case UnitCelsius = "u.celsius"
-    case UnitRPM = "u.rpm"
-    case UnitKPH = "u.kph"
-    case UnitkPA = "u.kpa"
-    case UnitVolt = "u.volt"
-    case UnitKM = "u.km"
-    case UnitMA = "u.ma"
-    case UnitL = "u.l"
-}
-
-/**
  It represents a single car info containings:
  
  + infoType: kind of information about the car

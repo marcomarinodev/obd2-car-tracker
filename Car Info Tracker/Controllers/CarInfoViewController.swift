@@ -9,31 +9,64 @@ import UIKit
 
 class CarInfoViewController: UIViewController {
     
-    // MARK: - Strategy
-    public var modeSelectorStrategy: ModeSelectorStrategy! {
-        
-        didSet {
-            navigationItem.title = modeSelectorStrategy.title
-        }
-        
-    }
-    
-    // MARK: - STUB
-    var groupModel: CarInfoGroup!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        // MARK: - STUB
-        CarInfoGroup.getDataOf(endpoint: .Engine) { group in
-            print("\nGROUP INFO")
-            for i in group.attributes {
-                print("Parameter: \(i.name)\nValue: \(i.value ?? "")\nType: \(i.infoType.rawValue)\n")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+     
+    }
+    
+    private func getData(of endpoint: Endpoint?) {
+        
+        if (endpoint != nil)
+        {
+            CarInfoGroup.getDataOf(endpoint: endpoint!) { group in
+                print("\nGROUP INFO")
+                for i in group.attributes {
+                    print("Parameter: \(i.name)\nValue: \(i.value ?? "")\nType: \(i.infoType.rawValue)\n")
+                }
+            }
+        } else {
+            // simply no endpoint was chosen
+            print("no endpoint was chosen")
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "toInfo" {
+                if let selectVC = segue.destination as? SelectModeViewController {
+                    
+                    selectVC.delegate = self
+                    
+                }
             }
         }
     }
 
 
+}
+
+extension CarInfoViewController: SelectModeViewControllerDelegate {
+    
+    func selectModeViewController(didCurrentInfoPressed request: Endpoint) {
+        
+        print("performing \(request.rawValue) request")
+        
+        // attempt trying to get data
+        getData(of: request)
+    }
+    
+    func selectModeViewController(didHystoricalInfoPressed hystoricalInfoType: HystoricalInfoType) {
+        
+        print("performing hystorical request")
+    }
+    
+    
 }
 

@@ -19,12 +19,12 @@ class SelectModeView {
         collectionViewController.collectionView = UICollectionView(frame: collectionViewController.view.bounds, collectionViewLayout: mosaicLayout)
         
         // properties
-        collectionViewController.collectionView.backgroundColor = .white
+        collectionViewController.collectionView.backgroundColor = UIColor(named: "Color")
         collectionViewController.collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionViewController.collectionView.alwaysBounceVertical = true
         collectionViewController.collectionView.indicatorStyle = .default
-        collectionViewController.collectionView.delegate = collectionViewController
-        collectionViewController.collectionView.dataSource = collectionViewController
+        collectionViewController.collectionView.showsVerticalScrollIndicator = false
+        collectionViewController.collectionView.showsHorizontalScrollIndicator = false
         
         // register the custom cell
         collectionViewController.collectionView.register(ModeCollectionViewCell.self, forCellWithReuseIdentifier: ModeCollectionViewCell.identifier)
