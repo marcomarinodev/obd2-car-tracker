@@ -1,7 +1,7 @@
 # obd2-car-tracker
 
 ### SelectMenuView (Dark Mode)
-![alt text](https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuDark.png?raw=true | width=200)
+<img src="https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuDark.png" width="200">
 
 ### SelectMenuView (Light Mode)
 ![alt text](https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuLight.png?raw=true | width=200)
