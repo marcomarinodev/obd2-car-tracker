@@ -14,6 +14,7 @@ class ModeCollectionViewCell: UICollectionViewCell {
     
     // view components
     var imageView = UIImageView()
+    var textLabel = UILabel()
 
     // var titleLabel = UILabel()
     
@@ -23,8 +24,10 @@ class ModeCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         imageViewSetup()
+        textLabelSetup()
         
         self.addSubview(imageView)
+        self.addSubview(textLabel)
         self.backgroundColor = .black
         // self.backgroundView = UIImageView(image: UIImage(named: "background"))
     }
@@ -43,7 +46,7 @@ class ModeCollectionViewCell: UICollectionViewCell {
         self.contentView.layer.masksToBounds = true
         
         if UITraitCollection.current.userInterfaceStyle == .dark {
-            self.contentView.layer.borderColor = #colorLiteral(red: 0.8196078431, green: 0.8039215686, blue: 0.1333333403, alpha: 1).cgColor
+            //self.contentView.layer.borderColor = #colorLiteral(red: 0.8196078431, green: 0.8039215686, blue: 0.1333333403, alpha: 1).cgColor
             self.layer.shadowColor = #colorLiteral(red: 0.8196078431, green: 0.8039215686, blue: 0.1333333403, alpha: 1).cgColor
         } else {
             self.contentView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
@@ -61,10 +64,23 @@ class ModeCollectionViewCell: UICollectionViewCell {
     
     private func imageViewSetup() {
         imageView.frame = CGRect(x: self.bounds.midX - (self.bounds.width / 4), y: self.bounds.midY - (self.bounds.height / 4), width: self.bounds.width / 2, height: self.bounds.height / 2)
-        // imageView.frame = self.bounds
+        imageView.backgroundColor = .red
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
+    
+    private func textLabelSetup() {
+        let verticalSpacing: CGFloat = 5.0
+        let originY = imageView.frame.origin.y + imageView.frame.height + verticalSpacing
+        let originPoint: CGPoint = CGPoint(x: 10, y: originY)
+        
+        textLabel.frame = CGRect(origin: originPoint, size: CGSize(
+                                    width: self.bounds.width - 10,
+                                    height: self.bounds.maxY - originY))
+        
+        textLabel.textColor = #colorLiteral(red: 0.8196078431, green: 0.8039215686, blue: 0.1333333403, alpha: 1)
+        textLabel.font = UIFont.systemFont(ofSize: 12.0)
     }
     
     required init?(coder: NSCoder) {

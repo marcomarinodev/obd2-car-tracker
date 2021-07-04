@@ -2,8 +2,6 @@
 
 ### TODO
 
-- Create SelectMode UI
-    - add label to the tiles
 - Create history of data in order to understand when a trouble error occurred and in which condition (low fuel pressure, ...)
 - CarInfoView (UI)
      - Use Strategy Pattern to show a specific UI where:

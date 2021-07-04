@@ -10,6 +10,7 @@ import UIKit
 class SelectModeView {
     
     private let collectionViewController: UICollectionViewController
+    private let title: String
     
     internal func setupMosaicCollectionView() {
         // create an instance of the cv layout
@@ -18,13 +19,7 @@ class SelectModeView {
         // init
         collectionViewController.collectionView = UICollectionView(frame: collectionViewController.view.bounds, collectionViewLayout: mosaicLayout)
         
-        // properties
-        collectionViewController.collectionView.backgroundColor = UIColor(named: "Color")
-        collectionViewController.collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionViewController.collectionView.alwaysBounceVertical = true
-        collectionViewController.collectionView.indicatorStyle = .default
-        collectionViewController.collectionView.showsVerticalScrollIndicator = false
-        collectionViewController.collectionView.showsHorizontalScrollIndicator = false
+        setupCollectionViewProperties()
         
         // register the custom cell
         collectionViewController.collectionView.register(ModeCollectionViewCell.self, forCellWithReuseIdentifier: ModeCollectionViewCell.identifier)
@@ -32,12 +27,43 @@ class SelectModeView {
         // add collection view as subview of this view
         collectionViewController.view.addSubview(collectionViewController.collectionView)
         
-        // set the navigation title
-        collectionViewController.navigationItem.title = "Car Info Tracker"
+        setupNavigationController(title: self.title)
+        
     }
     
-    init(cv: UICollectionViewController) {
+    private func setupCollectionViewProperties() {
+        // properties
+        collectionViewController.collectionView.backgroundColor = UIColor(named: "Color")
+        collectionViewController.collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionViewController.collectionView.alwaysBounceVertical = true
+        collectionViewController.collectionView.indicatorStyle = .default
+        collectionViewController.collectionView.showsVerticalScrollIndicator = false
+        collectionViewController.collectionView.showsHorizontalScrollIndicator = false
+    }
+    
+    private func setupNavigationController(title: String) {
+        // navigation controller style
+        // set the navigation title
+        // title
+        collectionViewController.navigationItem.title = title
+        // preferred large title
+        collectionViewController.navigationController?.navigationBar.prefersLargeTitles = true
+        collectionViewController.navigationController?.hidesBarsOnSwipe = true
+        
+        let styleAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.label,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 40.0, weight: .heavy)
+        ]
+        
+        // collectionViewController.navigationController?.navigationItem.titleView =
+        
+        collectionViewController.navigationController?.navigationBar.largeTitleTextAttributes = styleAttributes
+        
+    }
+    
+    init(cv: UICollectionViewController, title: String) {
         self.collectionViewController = cv
+        self.title = title
     }
     
     required init?(coder: NSCoder) {

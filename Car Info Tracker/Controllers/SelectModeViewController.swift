@@ -39,7 +39,7 @@ public class SelectModeViewController: UICollectionViewController {
         super.viewDidLoad()
         
         // an object that represents the view of this collectionViewController
-        selectModeView = SelectModeView(cv: self)
+        selectModeView = SelectModeView(cv: self, title: "🧰 Diagnostic")
         
         // getting the possible modes from the model
         menuItems = Mode.getModes()
@@ -52,15 +52,7 @@ public class SelectModeViewController: UICollectionViewController {
         collectionView.dataSource = self
         
     }
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // scrolls the collection view contents until the specified item is visible
-        if collectionView.numberOfItems(inSection: 0) > 0 {
-            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
-        }
-    }
+
 }
 
 // MARK: - UICollectionViewDataSource
@@ -81,6 +73,7 @@ extension SelectModeViewController {
         
         // set the image for the imageView
         cell.imageView.image = UIImage(named: menuItems[indexPath.item].imageName)
+        cell.textLabel.text = menuItems[indexPath.item].name
         
         return cell
         
@@ -112,8 +105,6 @@ extension SelectModeViewController {
             if (selectedMenuItem!.modeType == .endpoint) {
                 
                 var endpoint = Endpoint(rawValue: selectedMenuItem!.name)
-                
-                
                 
                 if endpoint == nil {
                     // default endpoint

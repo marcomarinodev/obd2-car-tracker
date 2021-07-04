@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A6420C6DD4EEB48D0AD1B79B /* Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9272BE73D68FDA4D6C88E92 /* Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework */; };
 		A8541F53268637A300FF064C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8541F52268637A300FF064C /* AppDelegate.swift */; };
-		A8541F55268637A300FF064C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8541F54268637A300FF064C /* SceneDelegate.swift */; };
 		A8541F57268637A300FF064C /* CarInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8541F56268637A300FF064C /* CarInfoViewController.swift */; };
 		A8541F5A268637A300FF064C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8541F58268637A300FF064C /* Main.storyboard */; };
 		A8541F5C268637A300FF064C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8541F5B268637A300FF064C /* Assets.xcassets */; };
@@ -33,6 +32,7 @@
 		A8D4FEC4268EFB3F0005F7A3 /* SelectModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4FEC3268EFB3F0005F7A3 /* SelectModeView.swift */; };
 		A8D4FEC62690C1620005F7A3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4FEC52690C1620005F7A3 /* Errors.swift */; };
 		A8D4FEC82690C4790005F7A3 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4FEC72690C4790005F7A3 /* Enums.swift */; };
+		A8D4FF182691C2270005F7A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4FF172691C2270005F7A3 /* SceneDelegate.swift */; };
 		E591DD64672D17A17554C42F /* Pods_Car_Info_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1150EC4100B6EEB7899E4D8D /* Pods_Car_Info_TrackerTests.framework */; };
 		EBBE4166BAAE39AF050DBE3B /* Pods_Car_Info_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD7A07070033DCEE3DC4B65 /* Pods_Car_Info_Tracker.framework */; };
 /* End PBXBuildFile section */
@@ -65,7 +65,6 @@
 		9BBDF6766212F7AEE1974183 /* Pods-Car Info Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car Info Tracker.release.xcconfig"; path = "Target Support Files/Pods-Car Info Tracker/Pods-Car Info Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		A8541F4F268637A300FF064C /* Car Info Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Info Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8541F52268637A300FF064C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A8541F54268637A300FF064C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A8541F56268637A300FF064C /* CarInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoViewController.swift; sourceTree = "<group>"; };
 		A8541F59268637A300FF064C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8541F5B268637A300FF064C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		A8D4FEC3268EFB3F0005F7A3 /* SelectModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeView.swift; sourceTree = "<group>"; };
 		A8D4FEC52690C1620005F7A3 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		A8D4FEC72690C4790005F7A3 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		A8D4FF172691C2270005F7A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C9272BE73D68FDA4D6C88E92 /* Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -230,7 +230,7 @@
 		A8541F85268637C800FF064C /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				A8541F54268637A300FF064C /* SceneDelegate.swift */,
+				A8D4FF172691C2270005F7A3 /* SceneDelegate.swift */,
 				A8541F52268637A300FF064C /* AppDelegate.swift */,
 			);
 			path = Delegates;
@@ -524,12 +524,12 @@
 				A8A5E302268B77EC00D6D3EF /* MosaicMenuLayout.swift in Sources */,
 				A8541F57268637A300FF064C /* CarInfoViewController.swift in Sources */,
 				A8541F8A26865DCF00FF064C /* CarInfoGroup.swift in Sources */,
+				A8D4FF182691C2270005F7A3 /* SceneDelegate.swift in Sources */,
 				A8A5E30D268B86A300D6D3EF /* Mode.swift in Sources */,
 				A8541F53268637A300FF064C /* AppDelegate.swift in Sources */,
 				A8A5E304268B798600D6D3EF /* Utilities.swift in Sources */,
 				A8A5E2E7268B305000D6D3EF /* SelectModeViewController.swift in Sources */,
 				A8D4FEC4268EFB3F0005F7A3 /* SelectModeView.swift in Sources */,
-				A8541F55268637A300FF064C /* SceneDelegate.swift in Sources */,
 				A8A5E2FA268B6FA200D6D3EF /* CarInfoViewCell.swift in Sources */,
 				A8D4FEC82690C4790005F7A3 /* Enums.swift in Sources */,
 				A8A5E2FE268B730E00D6D3EF /* TroubleViewCell.swift in Sources */,
