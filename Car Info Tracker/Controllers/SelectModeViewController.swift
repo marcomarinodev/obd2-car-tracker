@@ -32,6 +32,8 @@ public class SelectModeViewController: UICollectionViewController {
     
     let segueIdentifier = "toInfo"
     
+    public var colorSet: Set<UIColor> = Set<UIColor>()
+    
     // didSelectItemAt modifies this variable
     internal var selectedMenuItem: Mode? = nil
     
@@ -39,7 +41,7 @@ public class SelectModeViewController: UICollectionViewController {
         super.viewDidLoad()
         
         // an object that represents the view of this collectionViewController
-        selectModeView = SelectModeView(cv: self, title: "🧰 Diagnostic")
+        selectModeView = SelectModeView(cv: self, title: " Diagnostic", colorSet: &colorSet)
         
         // getting the possible modes from the model
         menuItems = Mode.getModes()
@@ -74,6 +76,7 @@ extension SelectModeViewController {
         // set the image for the imageView
         cell.imageView.image = UIImage(named: menuItems[indexPath.item].imageName)
         cell.textLabel.text = menuItems[indexPath.item].name
+        cell.backgroundColor = UIColor().getColor(set: &colorSet)
         
         return cell
         

@@ -10,6 +10,7 @@ import Foundation
 public struct Mode {
     
     public var name: String
+    public var endpoint: String
     public var imageName: String
     
     enum ModeType {
@@ -22,11 +23,11 @@ public struct Mode {
     public static func getModes() -> [Mode] {
         
         return [
-            Mode(name: "/engine_codes", imageName: "engine", modeType: .endpoint),
-            Mode(name: "/chassis_codes", imageName: "chassis", modeType: .endpoint),
-            Mode(name: "/error_codes", imageName: "trouble", modeType: .endpoint),
-            Mode(name: "Plot", imageName: "telemetry", modeType: .hystorical),
-            Mode(name: "Predicts", imageName: "history", modeType: .hystorical)
+            Mode(name: "Engine", endpoint: "/engine_codes", imageName: "engine", modeType: .endpoint),
+            Mode(name: "Chassis", endpoint: "/chassis_codes", imageName: "chassis", modeType: .endpoint),
+            Mode(name: "Plots", endpoint: "/plots", imageName: "plots", modeType: .hystorical),
+            Mode(name: "Troubles", endpoint: "/error_codes", imageName: "trouble", modeType: .endpoint),
+            Mode(name: "History", endpoint: "/history", imageName: "history", modeType: .hystorical)
         ]
         
     }

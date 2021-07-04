@@ -61,9 +61,12 @@ class SelectModeView {
         
     }
     
-    init(cv: UICollectionViewController, title: String) {
+    init(cv: UICollectionViewController, title: String, colorSet: inout Set<UIColor>) {
         self.collectionViewController = cv
         self.title = title
+        
+        colorSet = UIColor.colorSet
+        
     }
     
     required init?(coder: NSCoder) {

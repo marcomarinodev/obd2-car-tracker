@@ -1,7 +1,12 @@
 # obd2-car-tracker
 
-### TODO
+### SelectMenuView (Dark Mode)
+![alt text](https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuDark.png?raw=true)
 
+### SelectMenuView (Light Mode)
+![alt text](https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuLight.png?raw=true)
+
+### TODO
 - Create history of data in order to understand when a trouble error occurred and in which condition (low fuel pressure, ...)
 - CarInfoView (UI)
      - Use Strategy Pattern to show a specific UI where:
