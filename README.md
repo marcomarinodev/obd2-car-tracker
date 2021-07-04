@@ -1,10 +1,10 @@
 # obd2-car-tracker
 
 ### SelectMenuView (Dark Mode)
-![alt text](https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuDark.png?raw=true)
+![alt text](https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuDark.png?raw=true | width=200)
 
 ### SelectMenuView (Light Mode)
-![alt text](https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuLight.png?raw=true)
+![alt text](https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuLight.png?raw=true | width=200)
 
 ### TODO
 - Create history of data in order to understand when a trouble error occurred and in which condition (low fuel pressure, ...)
