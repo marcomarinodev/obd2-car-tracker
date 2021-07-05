@@ -13,11 +13,6 @@ public struct Mode {
     public var endpoint: String
     public var imageName: String
     
-    enum ModeType {
-        case endpoint
-        case hystorical
-    }
-    
     var modeType: ModeType
     
     public static func getModes() -> [Mode] {
@@ -27,7 +22,8 @@ public struct Mode {
             Mode(name: "Chassis", endpoint: "/chassis_codes", imageName: "chassis", modeType: .endpoint),
             Mode(name: "Plots", endpoint: "/plots", imageName: "plots", modeType: .hystorical),
             Mode(name: "Troubles", endpoint: "/error_codes", imageName: "trouble", modeType: .endpoint),
-            Mode(name: "History", endpoint: "/history", imageName: "history", modeType: .hystorical)
+            Mode(name: "History", endpoint: "/history", imageName: "history", modeType: .hystorical),
+            Mode(name: "Settings", endpoint: "/settings", imageName: "settings", modeType: .settings)
         ]
         
     }

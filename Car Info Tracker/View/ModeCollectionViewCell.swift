@@ -72,7 +72,13 @@ class ModeCollectionViewCell: UICollectionViewCell {
         let verticalSpacing: CGFloat = 2.0
         let originY = imageView.frame.origin.y + imageView.frame.height + verticalSpacing
         let originPoint: CGPoint = CGPoint(x: 10, y: originY)
-        let fontSize: CGFloat = CGFloat().computePercent(14, of: self.bounds.width)
+        let screenWidth = UIScreen.main.bounds.width
+        
+        // if the tile.width is greater than the half of screen size, then reduce the font size percentage
+        // as if it were a 2/3 tile (not totally equals)
+        let fontSizeRate = (self.bounds.width > (CGFloat().computePercent(80, of: screenWidth))) ? (screenWidth / 1.7) : self.bounds.width
+        
+        let fontSize: CGFloat = CGFloat().computePercent(13, of: fontSizeRate)
         
         textLabel.frame = CGRect(origin: originPoint, size: CGSize(
                                     width: self.bounds.width - 20,

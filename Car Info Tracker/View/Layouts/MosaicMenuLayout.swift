@@ -53,7 +53,7 @@ public class MosaicMenuLayout: UICollectionViewLayout {
         while currentIndex < count {
             
             // 20 due to rounded corners
-            var segmentFrame = CGRect(x: 20, y: lastFrame.maxY + verticalSpacing, width: cvWidth, height: 250.0)
+            var segmentFrame = CGRect(x: 20, y: lastFrame.maxY + verticalSpacing, width: cvWidth, height: 220.0)
             
             var segmentRects = [CGRect]()
             
@@ -179,11 +179,11 @@ public class MosaicMenuLayout: UICollectionViewLayout {
             default:
                 switch segment {
                 case .fullWidth:
-                    segment = .fiftyFifty
-                case .fiftyFifty:
-                    segment = .twoThirdsOneThird
-                case .twoThirdsOneThird:
                     segment = .oneThirdTwoThirds
+                case .fiftyFifty:
+                    segment = .fullWidth
+                case .twoThirdsOneThird:
+                    segment = .fiftyFifty
                 case .oneThirdTwoThirds:
                     segment = .fiftyFifty
                 }

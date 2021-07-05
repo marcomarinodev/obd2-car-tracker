@@ -31,6 +31,14 @@ class SelectModeView {
         
     }
     
+    internal func setupModeCollectionViewCell(_ cell: inout ModeCollectionViewCell, items menuItems: [Mode], indexPath: IndexPath, colorSet: inout Set<UIColor>) {
+        
+        cell.imageView.image = UIImage(named: menuItems[indexPath.item].imageName)
+        cell.textLabel.text = menuItems[indexPath.item].name
+        cell.backgroundColor = UIColor().getColor(set: &colorSet)
+        
+    }
+    
     private func setupCollectionViewProperties() {
         // properties
         collectionViewController.collectionView.backgroundColor = UIColor(named: "Color")

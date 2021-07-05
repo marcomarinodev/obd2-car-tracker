@@ -11,10 +11,10 @@ public protocol SelectModeViewControllerDelegate: AnyObject {
     
     // what view controllers that conform to this protocol have to do
     // when an info button is pressed: (current engine, chassis and trouble codes)
-    func selectModeViewController(didCurrentInfoPressed request: Endpoint)
+    func selectModeViewController(didCurrentInfoPressed request: Endpoint, mode: ModeType)
     
     // when an hystorical button is pressed: (data plot, damages preditcion)
-    func selectModeViewController(didHystoricalInfoPressed hystoricalInfoType: HystoricalInfoType)
+    func selectModeViewController(didHystoricalInfoPressed hystoricalInfoType: HystoricalInfoType, mode: ModeType)
     
 }
 
@@ -41,7 +41,7 @@ public class SelectModeViewController: UICollectionViewController {
         super.viewDidLoad()
         
         // an object that represents the view of this collectionViewController
-        selectModeView = SelectModeView(cv: self, title: " Diagnostic", colorSet: &colorSet)
+        selectModeView = SelectModeView(cv: self, title: "⚙️ Diagnostic", colorSet: &colorSet)
         
         // getting the possible modes from the model
         menuItems = Mode.getModes()
@@ -68,15 +68,13 @@ extension SelectModeViewController {
     
     public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ModeCollectionViewCell.identifier, for: indexPath) as? ModeCollectionViewCell else {
+        guard var cell = collectionView.dequeueReusableCell(withReuseIdentifier: ModeCollectionViewCell.identifier, for: indexPath) as? ModeCollectionViewCell else {
             
             preconditionFailure("Failed to load collection view cell")
         }
         
-        // set the image for the imageView
-        cell.imageView.image = UIImage(named: menuItems[indexPath.item].imageName)
-        cell.textLabel.text = menuItems[indexPath.item].name
-        cell.backgroundColor = UIColor().getColor(set: &colorSet)
+        // delegating to selectModeView the custom cell
+        selectModeView.setupModeCollectionViewCell(&cell, items: menuItems, indexPath: indexPath, colorSet: &colorSet)
         
         return cell
         
@@ -92,13 +90,20 @@ extension SelectModeViewController {
         
         selectedMenuItem = menuItems[indexPath.item]
         
-        self.performSegue(withIdentifier: segueIdentifier, sender: self)
+        // based on the selectedMenuItem got to CarInfoViewController or SettingsViewController
+        // MARK: - Can we abuse of the Strategy Design Pattern here?
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let carInfoVc = storyboard.instantiateViewController(identifier: "CarInfoViewController") as! CarInfoViewController
+
+        prepareTransitionTo(carInfoVC: carInfoVc)
+        
+        show(carInfoVc, sender: self)
     }
     
-    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let carInfoVC = segue.destination as? CarInfoViewController else { return }
-        
-        print("selected: \(selectedMenuItem!.name)")
+    private func prepareTransitionTo(carInfoVC: CarInfoViewController) {
+    
+        print("selected: \(selectedMenuItem!.endpoint)")
         
         // the delegate to perform the protocol functions is the destination vc (CarInfoViewController)
         self.delegate = carInfoVC
@@ -107,7 +112,7 @@ extension SelectModeViewController {
             
             if (selectedMenuItem!.modeType == .endpoint) {
                 
-                var endpoint = Endpoint(rawValue: selectedMenuItem!.name)
+                var endpoint = Endpoint(rawValue: selectedMenuItem!.endpoint)
                 
                 if endpoint == nil {
                     // default endpoint
@@ -115,7 +120,7 @@ extension SelectModeViewController {
                     endpoint = .Engine
                 }
                 
-                self.delegate?.selectModeViewController(didCurrentInfoPressed: endpoint!)
+                self.delegate?.selectModeViewController(didCurrentInfoPressed: endpoint!, mode: .endpoint)
             } else {
                 
                 var hystoric = HystoricalInfoType(rawValue: selectedMenuItem!.name)
@@ -125,10 +130,11 @@ extension SelectModeViewController {
                     hystoric = .Plot
                 }
                 
-                self.delegate?.selectModeViewController(didHystoricalInfoPressed: hystoric!)
+                self.delegate?.selectModeViewController(didHystoricalInfoPressed: hystoric!, mode: .hystorical)
                 
             }
         }
+        
     }
     
 }

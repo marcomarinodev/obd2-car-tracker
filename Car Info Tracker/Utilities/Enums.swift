@@ -55,3 +55,10 @@ public enum Endpoint: String {
     case ErrorCodes = "/error_codes"
     case Other = "/other_codes"
 }
+
+
+public enum ModeType {
+    case endpoint
+    case hystorical
+    case settings
+}

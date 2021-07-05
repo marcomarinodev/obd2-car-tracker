@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A6420C6DD4EEB48D0AD1B79B /* Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9272BE73D68FDA4D6C88E92 /* Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework */; };
+		A82436412693390500D3A6C6 /* CurrentDataDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82436402693390500D3A6C6 /* CurrentDataDrawer.swift */; };
 		A8541F53268637A300FF064C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8541F52268637A300FF064C /* AppDelegate.swift */; };
 		A8541F57268637A300FF064C /* CarInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8541F56268637A300FF064C /* CarInfoViewController.swift */; };
 		A8541F5A268637A300FF064C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8541F58268637A300FF064C /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 		A8541F8C26865FCC00FF064C /* CarInfoGroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8541F8B26865FCC00FF064C /* CarInfoGroupData.swift */; };
 		A8541F8E2686658300FF064C /* FirebaseStructure.json in Resources */ = {isa = PBXBuildFile; fileRef = A8541F8D2686658300FF064C /* FirebaseStructure.json */; };
 		A8541F902686726500FF064C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8541F8F2686726500FF064C /* GoogleService-Info.plist */; };
+		A89771DE2692387000E8DFCA /* CarInfoDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89771DD2692387000E8DFCA /* CarInfoDrawer.swift */; };
 		A8A5E2E7268B305000D6D3EF /* SelectModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E2E6268B305000D6D3EF /* SelectModeViewController.swift */; };
 		A8A5E2FA268B6FA200D6D3EF /* CarInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E2F8268B6FA200D6D3EF /* CarInfoViewCell.swift */; };
 		A8A5E2FB268B6FA200D6D3EF /* CarInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8A5E2F9268B6FA200D6D3EF /* CarInfoViewCell.xib */; };
@@ -63,6 +65,7 @@
 		91BB89E87A101F4956436DAD /* Pods-Car Info TrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car Info TrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-Car Info TrackerTests/Pods-Car Info TrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9AD7A07070033DCEE3DC4B65 /* Pods_Car_Info_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_Info_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BBDF6766212F7AEE1974183 /* Pods-Car Info Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Car Info Tracker.release.xcconfig"; path = "Target Support Files/Pods-Car Info Tracker/Pods-Car Info Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		A82436402693390500D3A6C6 /* CurrentDataDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDataDrawer.swift; sourceTree = "<group>"; };
 		A8541F4F268637A300FF064C /* Car Info Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Car Info Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8541F52268637A300FF064C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8541F56268637A300FF064C /* CarInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 		A8541F8B26865FCC00FF064C /* CarInfoGroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoGroupData.swift; sourceTree = "<group>"; };
 		A8541F8D2686658300FF064C /* FirebaseStructure.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FirebaseStructure.json; sourceTree = "<group>"; };
 		A8541F8F2686726500FF064C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A89771DD2692387000E8DFCA /* CarInfoDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoDrawer.swift; sourceTree = "<group>"; };
 		A8A5E2E6268B305000D6D3EF /* SelectModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeViewController.swift; sourceTree = "<group>"; };
 		A8A5E2F8268B6FA200D6D3EF /* CarInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoViewCell.swift; sourceTree = "<group>"; };
 		A8A5E2F9268B6FA200D6D3EF /* CarInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarInfoViewCell.xib; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 		A8541F51268637A300FF064C /* Car Info Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				A89771DB2692384200E8DFCA /* Strategies */,
 				A8A5E2E02687126A00D6D3EF /* Utilities */,
 				A8541F8F2686726500FF064C /* GoogleService-Info.plist */,
 				A8541F8D2686658300FF064C /* FirebaseStructure.json */,
@@ -242,6 +247,23 @@
 				A8541F5B268637A300FF064C /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A89771DB2692384200E8DFCA /* Strategies */ = {
+			isa = PBXGroup;
+			children = (
+				A89771DC2692385400E8DFCA /* CarInfoDrawer */,
+			);
+			path = Strategies;
+			sourceTree = "<group>";
+		};
+		A89771DC2692385400E8DFCA /* CarInfoDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				A89771DD2692387000E8DFCA /* CarInfoDrawer.swift */,
+				A82436402693390500D3A6C6 /* CurrentDataDrawer.swift */,
+			);
+			path = CarInfoDrawer;
 			sourceTree = "<group>";
 		};
 		A8A5E2E02687126A00D6D3EF /* Utilities */ = {
@@ -520,10 +542,12 @@
 				A8A5E30A268B7ED000D6D3EF /* ModeCollectionViewCell.swift in Sources */,
 				A8D4FEC62690C1620005F7A3 /* Errors.swift in Sources */,
 				A8541F8C26865FCC00FF064C /* CarInfoGroupData.swift in Sources */,
+				A89771DE2692387000E8DFCA /* CarInfoDrawer.swift in Sources */,
 				A8541F882686397C00FF064C /* CarInfo.swift in Sources */,
 				A8A5E302268B77EC00D6D3EF /* MosaicMenuLayout.swift in Sources */,
 				A8541F57268637A300FF064C /* CarInfoViewController.swift in Sources */,
 				A8541F8A26865DCF00FF064C /* CarInfoGroup.swift in Sources */,
+				A82436412693390500D3A6C6 /* CurrentDataDrawer.swift in Sources */,
 				A8D4FF182691C2270005F7A3 /* SceneDelegate.swift in Sources */,
 				A8A5E30D268B86A300D6D3EF /* Mode.swift in Sources */,
 				A8541F53268637A300FF064C /* AppDelegate.swift in Sources */,

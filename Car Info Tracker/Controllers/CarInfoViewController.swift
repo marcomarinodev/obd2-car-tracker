@@ -9,26 +9,50 @@ import UIKit
 
 class CarInfoViewController: UIViewController {
     
+    internal var modeType: ModeType? = nil
+
+    public var UIStrategy: CarInfoDrawer!
+
+    // Using Liskov Principle
+    private var UI: UIView!
+    
+    private var isFirstFetching = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        isFirstFetching = true
     }
     
     private func getData(of endpoint: Endpoint?) {
         
         if (endpoint != nil)
         {
-            CarInfoGroup.getDataOf(endpoint: endpoint!) { group in
-                print("\nGROUP INFO")
+            
+            CarInfoGroup.getDataOf(endpoint: endpoint!) { [self] group in
+                
                 for i in group.attributes {
                     print("Parameter: \(i.name)\nValue: \(i.value ?? "")\nType: \(i.infoType.rawValue)\n")
+                    
                 }
+                
+                if isFirstFetching {
+                    // First time: we need to rewrite the UI
+                    // we do not really care about how the UI is represented
+                    UI = self.UIStrategy.drawCarInfoUI(group)
+                } else {
+                    // Not the first time: just update UI DataSource
+                    isFirstFetching = false
+                    self.UIStrategy.updateCarInfoUI(group)
+                }
+                
+                
             }
         } else {
             // simply no endpoint was chosen
@@ -36,25 +60,16 @@ class CarInfoViewController: UIViewController {
         }
         
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            if identifier == "toInfo" {
-                if let selectVC = segue.destination as? SelectModeViewController {
-                    
-                    selectVC.delegate = self
-                    
-                }
-            }
-        }
-    }
 
 
 }
 
 extension CarInfoViewController: SelectModeViewControllerDelegate {
     
-    func selectModeViewController(didCurrentInfoPressed request: Endpoint) {
+    func selectModeViewController(didCurrentInfoPressed request: Endpoint, mode: ModeType) {
+        
+        // setting the mode in order to update UI
+        self.modeType = mode
         
         print("performing \(request.rawValue) request")
         
@@ -62,7 +77,9 @@ extension CarInfoViewController: SelectModeViewControllerDelegate {
         getData(of: request)
     }
     
-    func selectModeViewController(didHystoricalInfoPressed hystoricalInfoType: HystoricalInfoType) {
+    func selectModeViewController(didHystoricalInfoPressed hystoricalInfoType: HystoricalInfoType, mode: ModeType) {
+        
+        self.modeType = mode
         
         print("performing hystorical request")
     }
