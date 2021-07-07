@@ -8,10 +8,12 @@
 
 ### TODO
 - CarInfoView Controller Unit Testing
+    - Improve Code Coverage
 - Create history of data in order to understand when a trouble error occurred and in which condition (low fuel pressure, ...)
 - Reorganize database structure in order to support more users with more cars
 - CarInfoView (UI)
      - Set some effects when model changes
+     - Add activity indicator when the app is connecting to the endpoint
 - Implement Authentication
     - Implement Authentication UI
     - Authentication Model
