@@ -13,17 +13,12 @@ public struct Mode {
     public var endpoint: String
     public var imageName: String
     
-    var modeType: ModeType
-    
     public static func getModes() -> [Mode] {
         
         return [
-            Mode(name: "Engine", endpoint: "/engine_codes", imageName: "engine", modeType: .endpoint),
-            Mode(name: "Chassis", endpoint: "/chassis_codes", imageName: "chassis", modeType: .endpoint),
-            Mode(name: "Plots", endpoint: "/plots", imageName: "plots", modeType: .hystorical),
-            Mode(name: "Troubles", endpoint: "/error_codes", imageName: "trouble", modeType: .endpoint),
-            Mode(name: "History", endpoint: "/history", imageName: "history", modeType: .hystorical),
-            Mode(name: "Settings", endpoint: "/settings", imageName: "settings", modeType: .settings)
+            Mode(name: "Engine", endpoint: "/engine_codes", imageName: "engine"),
+            Mode(name: "Chassis", endpoint: "/chassis_codes", imageName: "chassis"),
+            Mode(name: "Troubles", endpoint: "/error_codes", imageName: "trouble")
         ]
         
     }

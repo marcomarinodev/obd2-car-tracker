@@ -16,10 +16,11 @@ import FirebaseDatabase
  + value: possible value associated with the info
  
  */
-public struct CarInfo {
+public struct CarInfo: Hashable {
+    
     public var infoType: ObdValueType
     public var name: String
-    public var value: Any?
+    public var value: String?
     
     init(unit infoType: ObdValueType, name: String, value: String?) {
         self.infoType = infoType
@@ -55,7 +56,7 @@ public struct CarInfo {
                     // error checking
                     if let numericalInfo = infoAny as? NSNumber {
                         
-                        self.value = numericalInfo
+                        self.value = "\(numericalInfo)"
                     
                     } else {
                         print("cannot convert info as numerical (unit info)")
@@ -69,7 +70,7 @@ public struct CarInfo {
                     // error checking
                     if let stringInfo = infoAny as? NSString {
                         
-                        self.value = stringInfo
+                        self.value = "\(stringInfo)"
                         
                     } else {
                         
@@ -89,11 +90,10 @@ public struct CarInfo {
         
     }
     
-    public func toAnyObject() -> Any {
-        return [
-            "unit": infoType.rawValue,
-            "value": value
-        ]
+    // to conform to the Hashable protocol we have to say when two
+    // CarInfo object are equal
+    public static func == (lhs: CarInfo, rhs: CarInfo) -> Bool {
+        lhs.name == rhs.name && lhs.value == rhs.value
     }
     
 }

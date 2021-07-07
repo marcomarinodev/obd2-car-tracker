@@ -27,7 +27,7 @@ class SelectModeView {
         // add collection view as subview of this view
         collectionViewController.view.addSubview(collectionViewController.collectionView)
         
-        setupNavigationController(title: self.title)
+        // setupNavigationController(title: self.title)
         
     }
     
@@ -49,27 +49,8 @@ class SelectModeView {
         collectionViewController.collectionView.showsHorizontalScrollIndicator = false
     }
     
-    private func setupNavigationController(title: String) {
-        // navigation controller style
-        // set the navigation title
-        // title
-        collectionViewController.navigationItem.title = title
-        // preferred large title
-        collectionViewController.navigationController?.navigationBar.prefersLargeTitles = true
-        collectionViewController.navigationController?.hidesBarsOnSwipe = true
-        
-        let styleAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.label,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 40.0, weight: .heavy)
-        ]
-        
-        // collectionViewController.navigationController?.navigationItem.titleView =
-        
-        collectionViewController.navigationController?.navigationBar.largeTitleTextAttributes = styleAttributes
-        
-    }
-    
     init(cv: UICollectionViewController, title: String, colorSet: inout Set<UIColor>) {
+        
         self.collectionViewController = cv
         self.title = title
         

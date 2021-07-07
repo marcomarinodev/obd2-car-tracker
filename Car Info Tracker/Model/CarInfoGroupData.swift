@@ -72,7 +72,7 @@ extension CarInfoGroup {
     /* @escaping keyword let the closure executes asynchronously on dispatch queue
      * that will hold the closure in memory, to be used in future
      */
-    public static func getDataOf(endpoint ep: Endpoint, completion: @escaping (CarInfoGroup) -> Void) {
+    public static func getDataOf(endpoint ep: Endpoint, completion: @escaping (CarInfoGroup, FetchingResponse) -> Void) {
         
         // check connection before do anything
         checkConnection { connected in
@@ -110,14 +110,17 @@ extension CarInfoGroup {
                             
                         }
                         
-                        completion(carInfoGroup)
+                        completion(carInfoGroup, .Success)
                         
                     } else {
                         print("\nNo data available at 'all\(endp)'\n")
+                        completion(CarInfoGroup.init(), .InvalidEndpoint)
                     }
                 }
                 
                 
+            } else {
+                completion(CarInfoGroup.init(), .NotConnected)
             }
         }
         

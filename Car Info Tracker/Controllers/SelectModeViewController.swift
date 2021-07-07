@@ -9,12 +9,21 @@ import UIKit
 
 public protocol SelectModeViewControllerDelegate: AnyObject {
     
-    // what view controllers that conform to this protocol have to do
-    // when an info button is pressed: (current engine, chassis and trouble codes)
-    func selectModeViewController(didCurrentInfoPressed request: Endpoint, mode: ModeType)
+    func selectModeViewController(didCurrentInfoPressed request: Endpoint)
     
-    // when an hystorical button is pressed: (data plot, damages preditcion)
-    func selectModeViewController(didHystoricalInfoPressed hystoricalInfoType: HystoricalInfoType, mode: ModeType)
+    func selectModeViewController(didHistoryPressed request: Endpoint)
+    
+}
+
+protocol SelectModeViewControllerInterface: AnyObject {
+    
+    func prepareTransitionTo(carInfoVC: CarInfoViewController)
+    
+    func prepareTransitionTo(hystoryVC: UIViewController)
+    
+    func prepareTransitionTo(plottingVC: UIViewController)
+    
+    func prepareTransitionTo(settingsVC: UIViewController)
     
 }
 
@@ -83,25 +92,23 @@ extension SelectModeViewController {
 }
 
 // MARK: - UICollectionViewDelegate
-extension SelectModeViewController {
+extension SelectModeViewController: SelectModeViewControllerInterface {
     
     public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(menuItems[indexPath.item].name)
-        
-        selectedMenuItem = menuItems[indexPath.item]
-        
-        // based on the selectedMenuItem got to CarInfoViewController or SettingsViewController
-        // MARK: - Can we abuse of the Strategy Design Pattern here?
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let carInfoVc = storyboard.instantiateViewController(identifier: "CarInfoViewController") as! CarInfoViewController
-
+        
+        selectedMenuItem = menuItems[indexPath.item]
+    
+        
         prepareTransitionTo(carInfoVC: carInfoVc)
         
+        // show the view controller
         show(carInfoVc, sender: self)
     }
     
-    private func prepareTransitionTo(carInfoVC: CarInfoViewController) {
+    func prepareTransitionTo(carInfoVC: CarInfoViewController) {
     
         print("selected: \(selectedMenuItem!.endpoint)")
         
@@ -109,32 +116,30 @@ extension SelectModeViewController {
         self.delegate = carInfoVC
         
         if self.delegate != nil {
-            
-            if (selectedMenuItem!.modeType == .endpoint) {
+            var endpoint = Endpoint(rawValue: selectedMenuItem!.endpoint)
                 
-                var endpoint = Endpoint(rawValue: selectedMenuItem!.endpoint)
-                
-                if endpoint == nil {
-                    // default endpoint
-                    print("is default")
-                    endpoint = .Engine
-                }
-                
-                self.delegate?.selectModeViewController(didCurrentInfoPressed: endpoint!, mode: .endpoint)
-            } else {
-                
-                var hystoric = HystoricalInfoType(rawValue: selectedMenuItem!.name)
-                
-                if hystoric == nil {
-                    // default hystoric operation
-                    hystoric = .Plot
-                }
-                
-                self.delegate?.selectModeViewController(didHystoricalInfoPressed: hystoric!, mode: .hystorical)
-                
+            if endpoint == nil {
+                // default endpoint
+                print("is default")
+                endpoint = .Engine
             }
+            
+            self.delegate?.selectModeViewController(didCurrentInfoPressed: endpoint!)
+            
         }
         
+    }
+    
+    func prepareTransitionTo(hystoryVC: UIViewController) {
+        // MARK: - hystoryVC
+    }
+    
+    func prepareTransitionTo(plottingVC: UIViewController) {
+        // MARK: - plottingVC
+    }
+    
+    func prepareTransitionTo(settingsVC: UIViewController) {
+        // MARK: - settingsVC
     }
     
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit.UITableViewCell
 
 /**
  Enum representing obd response value types with String as raw value
@@ -34,17 +35,8 @@ public enum ObdValueType: String {
 }
 
 /**
- Enum representing the hystorical selected mode
- */
-public enum HystoricalInfoType: String {
-    case Plot = "Plot"
-    case Predictions = "Predicts"
-}
-
-/**
  Enum that represents possible endpoints
  */
-
 /*
  I can extend the endpoint enum without changing anything
  */
@@ -56,9 +48,10 @@ public enum Endpoint: String {
     case Other = "/other_codes"
 }
 
-
-public enum ModeType {
-    case endpoint
-    case hystorical
-    case settings
+public enum FetchingResponse: String {
+    // success
+    case Success
+    // errors
+    case NotConnected = "Not connected"
+    case InvalidEndpoint = "Invalid Endpoint"
 }

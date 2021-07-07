@@ -100,3 +100,11 @@ extension UIColor {
     }
 }
 
+extension Bool {
+    
+    func toggle(value: inout Bool) {
+        value = !value
+    }
+    
+}
+

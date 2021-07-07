@@ -6,12 +6,11 @@
 | <img src="https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuDark.png" width="300"> | <img src="https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuLight.png" width="300"> |
 
 ### TODO
+- Unit Testing (Test Driven Development)
+- When using the car info view and there is a dark mode switch, the UI does not changes automatically, user need to close the view and reopen it
 - Create history of data in order to understand when a trouble error occurred and in which condition (low fuel pressure, ...)
+- Reorganize database structure in order to support more users with more cars
 - CarInfoView (UI)
-     - Use Strategy Pattern to show a specific UI where:
-        - Object using a Strategy: CarInfoViewController (ready to use UIDrawer)
-        - Strategy Protocol: UIDrawer <<Protocol>>
-        - Concrete Strategies: (Telemetry View, Hystorical View, Current Data view, Trouble Codes View, ...)  
      - Set some effects when model changes
 - Implement Authentication
     - Implement Authentication UI
@@ -22,13 +21,13 @@
     - Log in with Google, Apple
 
 ### DONE
-
+- CarInfoViewController uses strategy pattern, so it is not responsible to draw the UI
+    - Car Info Drawer is the protocol, so to create a new design and test it, you need to create a class that conforms to that protocol
 - Check async connection state
 - Async retrieving car info (trouble codes, engine, chassis, other)
-- Separate the Model from the View
+    - when Firebase API detects some changes in the Realtime database, UI updates
+- Model separated from the View
 - Every time I want to add/remove/rename an attribute or a info value type. The other code does not need changes.
-- model changes => automatically the CarInfoViewController changes the view
 - MosaicMenuLayout, reusable
-- Allowed portrait mode only
 - Dark mode
 - Transition using Delegate from SelectModeViewController and CarInfoViewController
