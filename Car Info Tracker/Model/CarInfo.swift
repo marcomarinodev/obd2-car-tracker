@@ -45,6 +45,7 @@ public struct CarInfo: Hashable {
             // convert unit as string
             if let unit = item.value["unit"] as? String {
                 
+                // MARK: If inside the DB there is a value that ObdValieType does not catch ==> Crash. So take this as an invariant
                 self.infoType = ObdValueType(rawValue: unit)!
                 
                 // taking infoAny as AnyObject value

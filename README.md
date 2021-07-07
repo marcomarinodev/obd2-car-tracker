@@ -3,11 +3,11 @@
 ### SelectMenuView (Dark/Light Mode)
 | Dark Mode | Light Mode |
 | --------- | ---------- |
-| <img src="https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuDark.png" width="300"> | <img src="https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuLight.png" width="300"> |
+| <img src="https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuLight.png" width="300"> | <img src="https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/menuDark.png" width="300"> |
+| <img src="https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/carInfoViewL.png" width="300"> | <img src="https://github.com/marcomarinodev/obd2-car-tracker/blob/main/screenshots/carInfoViewD.png" width="300">
 
 ### TODO
-- Unit Testing (Test Driven Development)
-- When using the car info view and there is a dark mode switch, the UI does not changes automatically, user need to close the view and reopen it
+- CarInfoView Controller Unit Testing
 - Create history of data in order to understand when a trouble error occurred and in which condition (low fuel pressure, ...)
 - Reorganize database structure in order to support more users with more cars
 - CarInfoView (UI)
@@ -31,3 +31,4 @@
 - MosaicMenuLayout, reusable
 - Dark mode
 - Transition using Delegate from SelectModeViewController and CarInfoViewController
+- CarInfoView has the same primary color as the tile that presented it

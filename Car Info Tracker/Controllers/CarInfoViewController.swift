@@ -55,7 +55,7 @@ class CarInfoViewController: UIViewController {
     /// If it is presenting trouble codes then table view is recorded to show TroubleViewCell
     fileprivate func registerTableView() {
         if isPresentingTrouble {
-            tableView.register(UINib(nibName: "TroubleViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+            tableView.register(TroublesTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         } else {
             tableView.register(CarInfoTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
             // tableView.register(UINib(nibName: "CarInfoViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
@@ -85,8 +85,7 @@ class CarInfoViewController: UIViewController {
                 
                 fetchingDebug(group, response)
                 
-                drawUI(group, response)
-                
+                drawUI(group.increasingSort(), response)
                 
             }
         } else {
@@ -107,7 +106,7 @@ class CarInfoViewController: UIViewController {
         var oldSet: Set = Set<CarInfo>()
         var newSet: Set = Set<CarInfo>()
         var diff: Set = Set<CarInfo>()
-        
+
         for attr in oldGroup.attributes {
             oldSet.insert(attr)
         }
@@ -136,15 +135,16 @@ class CarInfoViewController: UIViewController {
             
             print("is first fetching")
             
-            self.UIStrategy.drawCarInfoUI(of: group, with: response, on: &self.view, &self.tableView, &self.titleLabel)
+            self.UIStrategy.drawCarInfoUI(of: group, with: response, on: &self.view, &self.tableView, &self.titleLabel, tileColor: primaryColor)
             
-            tableView.reloadData()
-            
-        } else {
-            // Not the first time: just update UI DataSource
-            isFirstFetching = false
-            // self.UIStrategy.updateCarInfoUI(group)
+            isFirstFetching.toggle()
         }
+        
+        self.group = group.increasingSort()
+        
+        self.UIStrategy.updateCarInfoUI(group, with: response, &self.titleLabel)
+        
+        tableView.reloadData()
     }
     
     /// Series of response prints
@@ -162,13 +162,15 @@ class CarInfoViewController: UIViewController {
 
 /// Masking history button handler
 extension SelectModeViewControllerDelegate {
-    func selectModeViewController(didHistoryPressed request: Endpoint) {}
+    func selectModeViewController(didHistoryPressed request: Endpoint, tileColor: UIColor) {}
 }
 
 /// Implementing the delegate from SelectModeViewControllerDelegate
 extension CarInfoViewController: SelectModeViewControllerDelegate {
     
-    func selectModeViewController(didCurrentInfoPressed request: Endpoint) {
+    func selectModeViewController(didCurrentInfoPressed request: Endpoint, tileColor: UIColor) {
+        
+        self.primaryColor = tileColor
         
         print("performing \(request.rawValue) request")
         
@@ -198,18 +200,20 @@ extension CarInfoViewController: UITableViewDelegate, UITableViewDataSource {
         
         print("setting cell")
         
-        /*if isPresentingTrouble {
+        if isPresentingTrouble {
             // trouble codes
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TroubleViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TroublesTableViewCell else {
                 
                 fatalError()
                 
             }
             
-            cell.errorCode.text = info.name
+            cell.textLabel?.text = info.name
+            cell.detailTextLabel?.text = info.value
+            cell.accessoryType = .detailButton
             
             return cell
-        }*/
+        }
 
         // engine, chassis, other endpoints
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CarInfoTableViewCell else {
@@ -223,7 +227,6 @@ extension CarInfoViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.detailTextLabel?.text = "\(infoValue ?? "-") \(infoUnit)"
         cell.textLabel?.text = info.name
-        cell.accessoryType = .detailDisclosureButton
             
         return cell
         

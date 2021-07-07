@@ -45,4 +45,12 @@ public struct CarInfoGroup {
         self.attributes = attributes
         self.dateTime = dateTime
     }
+    
+    public func increasingSort() -> CarInfoGroup {
+        let attr = attributes.sorted { info1, info2 in
+            info1.name < info2.name
+        }
+        
+        return CarInfoGroup(name: name, attributes: attr, dateTime: dateTime)
+    }
 }

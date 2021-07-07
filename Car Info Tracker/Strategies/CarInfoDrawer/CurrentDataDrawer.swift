@@ -12,10 +12,15 @@ public class CurrentDataDrawer: CarInfoDrawer {
     // MARK: - UI Properties
     
     // Group: titleLabel properties
-    private let titleLabelOrigin = CGPoint(x: 15, y: 15)
+    private let verticalSpacing: CGFloat = 15.0
+    private let horizontalSpacing: CGFloat = 15.0
+    
+    private var titleLabelOrigin: CGPoint {
+        CGPoint(x: horizontalSpacing, y: verticalSpacing)
+    }
     
     private var titleLabelDim: CGSize {
-        CGSize(width: UIScreen.main.bounds.width - 30, height: CGFloat().computePercent(20, of: UIScreen.main.bounds.width - 30))
+        CGSize(width: UIScreen.main.bounds.width - (2*horizontalSpacing), height: CGFloat().computePercent(20, of: UIScreen.main.bounds.width - (2*horizontalSpacing)))
     }
     
     private var titleLabelFrame: CGRect {
@@ -27,19 +32,13 @@ public class CurrentDataDrawer: CarInfoDrawer {
         return UIFont.systemFont(ofSize: fontSize, weight: .heavy)
     }
     
-    private var titleLabelTextColor: UIColor {
-        if UITraitCollection.current.userInterfaceStyle == .dark {
-            return .white
-        } else { return .black }
-    }
-    
     // Group: tableView properties
     private var tableViewOrigin: CGPoint {
-        CGPoint(x: 0, y: self.titleLabelDim.height)
+        CGPoint(x: 0, y: self.titleLabelDim.height + verticalSpacing)
     }
     
     private var tableViewDim: CGSize {
-        CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.titleLabelDim.height - 15)
+        CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - self.titleLabelDim.height - verticalSpacing)
     }
     
     private var tableViewFrame: CGRect {
@@ -56,13 +55,13 @@ public class CurrentDataDrawer: CarInfoDrawer {
     private func drawTitleLabel(_ titleLabel: inout UILabel) {
         
         titleLabel = UILabel(frame: titleLabelFrame)
-        titleLabel.textColor = self.titleLabelTextColor
         titleLabel.font = titleLabelFont
+        titleLabel.textColor = .white
         
     }
     
     // MARK: - Define Strategy
-    public func drawCarInfoUI(of group: CarInfoGroup, with response: FetchingResponse, on mainView: inout UIView, _ tableView: inout UITableView, _ titleLabel: inout UILabel) {
+    public func drawCarInfoUI(of group: CarInfoGroup, with response: FetchingResponse, on mainView: inout UIView, _ tableView: inout UITableView, _ titleLabel: inout UILabel, tileColor: UIColor) {
         
         clearUI(&mainView)
         
@@ -76,7 +75,7 @@ public class CurrentDataDrawer: CarInfoDrawer {
             titleLabel.text = group.description
         }
         
-        mainView.backgroundColor = UIColor(named: "Color")
+        mainView.backgroundColor = tileColor
         
         // adding layers to mainView
         mainView.addSubview(tableView)
@@ -90,7 +89,14 @@ public class CurrentDataDrawer: CarInfoDrawer {
         }
     }
     
-    public func updateCarInfoUI(_ group: CarInfoGroup) {
+    public func updateCarInfoUI(_ group: CarInfoGroup, with response: FetchingResponse, _ titleLabel: inout UILabel) {
+        
+        // set title text
+        if response != .Success {
+            titleLabel.text = response.rawValue
+        } else {
+            titleLabel.text = group.description
+        }
         
     }
     

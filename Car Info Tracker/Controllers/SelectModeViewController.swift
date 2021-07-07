@@ -9,21 +9,21 @@ import UIKit
 
 public protocol SelectModeViewControllerDelegate: AnyObject {
     
-    func selectModeViewController(didCurrentInfoPressed request: Endpoint)
+    func selectModeViewController(didCurrentInfoPressed request: Endpoint, tileColor: UIColor)
     
-    func selectModeViewController(didHistoryPressed request: Endpoint)
+    func selectModeViewController(didHistoryPressed request: Endpoint, tileColor: UIColor)
     
 }
 
 protocol SelectModeViewControllerInterface: AnyObject {
     
-    func prepareTransitionTo(carInfoVC: CarInfoViewController)
+    func prepareTransitionTo(carInfoVC: CarInfoViewController, tileColor: UIColor)
     
-    func prepareTransitionTo(hystoryVC: UIViewController)
+    func prepareTransitionTo(hystoryVC: UIViewController, tileColor: UIColor)
     
-    func prepareTransitionTo(plottingVC: UIViewController)
+    func prepareTransitionTo(plottingVC: UIViewController, tileColor: UIColor)
     
-    func prepareTransitionTo(settingsVC: UIViewController)
+    func prepareTransitionTo(settingsVC: UIViewController, tileColor: UIColor)
     
 }
 
@@ -99,16 +99,17 @@ extension SelectModeViewController: SelectModeViewControllerInterface {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let carInfoVc = storyboard.instantiateViewController(identifier: "CarInfoViewController") as! CarInfoViewController
         
+        let selectedCell = collectionView.cellForItem(at: indexPath)
+        
         selectedMenuItem = menuItems[indexPath.item]
     
-        
-        prepareTransitionTo(carInfoVC: carInfoVc)
+        prepareTransitionTo(carInfoVC: carInfoVc, tileColor: selectedCell!.backgroundColor!)
         
         // show the view controller
         show(carInfoVc, sender: self)
     }
     
-    func prepareTransitionTo(carInfoVC: CarInfoViewController) {
+    func prepareTransitionTo(carInfoVC: CarInfoViewController, tileColor: UIColor) {
     
         print("selected: \(selectedMenuItem!.endpoint)")
         
@@ -124,21 +125,21 @@ extension SelectModeViewController: SelectModeViewControllerInterface {
                 endpoint = .Engine
             }
             
-            self.delegate?.selectModeViewController(didCurrentInfoPressed: endpoint!)
+            self.delegate?.selectModeViewController(didCurrentInfoPressed: endpoint!, tileColor: tileColor)
             
         }
         
     }
     
-    func prepareTransitionTo(hystoryVC: UIViewController) {
+    func prepareTransitionTo(hystoryVC: UIViewController, tileColor: UIColor) {
         // MARK: - hystoryVC
     }
     
-    func prepareTransitionTo(plottingVC: UIViewController) {
+    func prepareTransitionTo(plottingVC: UIViewController, tileColor: UIColor) {
         // MARK: - plottingVC
     }
     
-    func prepareTransitionTo(settingsVC: UIViewController) {
+    func prepareTransitionTo(settingsVC: UIViewController, tileColor: UIColor) {
         // MARK: - settingsVC
     }
     

@@ -17,11 +17,11 @@ public protocol CarInfoDrawer: AnyObject {
     ///   - mainView: reference to mainView
     ///   - tableView: reference to the tableView that belongs to mainView
     ///   - titleLabel: reference to the titleLabel that belongs to mainView
-    func drawCarInfoUI(of group: CarInfoGroup, with response: FetchingResponse, on mainView: inout UIView, _ tableView: inout UITableView, _ titleLabel: inout UILabel)
+    func drawCarInfoUI(of group: CarInfoGroup, with response: FetchingResponse, on mainView: inout UIView, _ tableView: inout UITableView, _ titleLabel: inout UILabel, tileColor: UIColor)
     
     /**
         Function that updates UI data based on model update
      */
-    func updateCarInfoUI(_ group: CarInfoGroup)
+    func updateCarInfoUI(_ group: CarInfoGroup, with response: FetchingResponse, _ titleLabel: inout UILabel)
     
 }

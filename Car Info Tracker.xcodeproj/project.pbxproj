@@ -24,6 +24,7 @@
 		A89771DE2692387000E8DFCA /* CarInfoDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89771DD2692387000E8DFCA /* CarInfoDrawer.swift */; };
 		A89842D22695A28B006516D0 /* CarInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89842D12695A28B006516D0 /* CarInfoTableViewCell.swift */; };
 		A89842D42695BE09006516D0 /* CarInfoVCUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89842D32695BE09006516D0 /* CarInfoVCUnitTests.swift */; };
+		A89842D92695D18E006516D0 /* TroublesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89842D82695D18E006516D0 /* TroublesTableViewCell.swift */; };
 		A8A5E2E7268B305000D6D3EF /* SelectModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E2E6268B305000D6D3EF /* SelectModeViewController.swift */; };
 		A8A5E302268B77EC00D6D3EF /* MosaicMenuLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E301268B77EC00D6D3EF /* MosaicMenuLayout.swift */; };
 		A8A5E304268B798600D6D3EF /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A5E303268B798600D6D3EF /* Utilities.swift */; };
@@ -85,6 +86,7 @@
 		A89771DD2692387000E8DFCA /* CarInfoDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoDrawer.swift; sourceTree = "<group>"; };
 		A89842D12695A28B006516D0 /* CarInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A89842D32695BE09006516D0 /* CarInfoVCUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInfoVCUnitTests.swift; sourceTree = "<group>"; };
+		A89842D82695D18E006516D0 /* TroublesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroublesTableViewCell.swift; sourceTree = "<group>"; };
 		A8A5E2E6268B305000D6D3EF /* SelectModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModeViewController.swift; sourceTree = "<group>"; };
 		A8A5E301268B77EC00D6D3EF /* MosaicMenuLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosaicMenuLayout.swift; sourceTree = "<group>"; };
 		A8A5E303268B798600D6D3EF /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			children = (
 				A8A5E309268B7ED000D6D3EF /* ModeCollectionViewCell.swift */,
 				A89842D12695A28B006516D0 /* CarInfoTableViewCell.swift */,
+				A89842D82695D18E006516D0 /* TroublesTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				A8541F53268637A300FF064C /* AppDelegate.swift in Sources */,
 				A8A5E304268B798600D6D3EF /* Utilities.swift in Sources */,
 				A8A5E2E7268B305000D6D3EF /* SelectModeViewController.swift in Sources */,
+				A89842D92695D18E006516D0 /* TroublesTableViewCell.swift in Sources */,
 				A8D4FEC4268EFB3F0005F7A3 /* SelectModeView.swift in Sources */,
 				A8D4FEC82690C4790005F7A3 /* Enums.swift in Sources */,
 			);
