@@ -3,15 +3,27 @@
     "engine_codes" : {
       "FUEL_PRESSURE" : {
         "unit" : "u.kpa",
-        "value" : "415.2"
+        "value" : "417.8"
+      },
+      "RPM" : {
+        "unit" : "u.rpm",
+        "value" : "2514"
       },
       "SPEED" : {
         "unit" : "u.kph",
-        "value" : "152.7"
+        "value" : "26.2"
       }
     },
     "error_codes" : {
-      "P0141" : "O2 Sensor Heater Circuit Malfunction (Bank 1, Sensor 2)"
+      "P0135" : "02 Sensor Heater Circuit Malfunction (Bank 1, Sensor 1)",
+      "P0141" : "O2 Sensor Heater Circuit Malfunction (Bank 1, Sensor 2)",
+      "P0171" : "System Too Lean (Bank 1)",
+      "P0200" : "Injector Circuit Malfunction",
+      "P0300" : "Random/Multiple Cylinder Misfire Detected",
+      "P0500" : "Vehicle Speed Sensor Malfunction",
+      "P0600" : "Serial Communication Link Malfunction",
+      "P0602" : "Control Module Programming Error",
+      "P0604" : "Internal Control Module RAM Error"
     },
     "other_codes" : {
       "CAR_MODEL" : "Renault Clio 2021 Hybrid"
