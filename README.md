@@ -34,3 +34,6 @@
 - Dark mode
 - Transition using Delegate from SelectModeViewController and CarInfoViewController
 - CarInfoView has the same primary color as the tile that presented it
+
+### Hardware Notes
+- Each device will have a qr code, so that the application will be able to read the qr after authenticated and link the device with the account
