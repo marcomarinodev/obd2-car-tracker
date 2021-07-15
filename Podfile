@@ -16,7 +16,9 @@ target 'Car Info Tracker' do
   
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
   pod 'Firebase/Firestore'
+  
 
   target 'Car Info TrackerTests' do
     inherit! :search_paths
