@@ -16,6 +16,10 @@
      - Add activity indicator when the app is connecting to the endpoint
 - Implement Authentication
     - Implement Authentication UI
+        - Sign Up page
+            - text field should return (DONE)
+            - responsive ui
+            - dark mode
     - Authentication Model
     - For every user is reserved a space where its car info persist
         - (Optional) Every user can store multiple car data

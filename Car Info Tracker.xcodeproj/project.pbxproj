@@ -103,6 +103,7 @@
 		A8D647A426A07C0E0028249D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../../../../../Downloads/ProfileViewController.swift; sourceTree = "<group>"; };
 		A8D647A626A07CBE0028249D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A8D647A826A07D6A0028249D /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		A8D647AA26A0A7250028249D /* Car Info Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Car Info Tracker.entitlements"; sourceTree = "<group>"; };
 		A8F73E4D26A06ECA00ADF2E8 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		C9272BE73D68FDA4D6C88E92 /* Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -170,6 +171,7 @@
 		A8541F51268637A300FF064C /* Car Info Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				A8D647AA26A0A7250028249D /* Car Info Tracker.entitlements */,
 				A89771DB2692384200E8DFCA /* Strategies */,
 				A8A5E2E02687126A00D6D3EF /* Utilities */,
 				A8541F8F2686726500FF064C /* GoogleService-Info.plist */,
@@ -753,6 +755,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Car Info Tracker/Car Info Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KYC926R2SM;
 				INFOPLIST_FILE = "Car Info Tracker/Info.plist";
@@ -773,6 +776,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Car Info Tracker/Car Info Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KYC926R2SM;
 				INFOPLIST_FILE = "Car Info Tracker/Info.plist";

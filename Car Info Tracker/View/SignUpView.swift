@@ -14,11 +14,11 @@ class SignUpView {
     
     private var mainView: UIView
     
-    private var emailField: UITextField
+    public var emailField: UITextField
     
-    private var repeatEmailField: UITextField
+    public var repeatEmailField: UITextField
     
-    private var passwordField: UITextField
+    public var passwordField: UITextField
     
     private var signInWithGoogle: GIDSignInButton
     
@@ -46,7 +46,7 @@ class SignUpView {
         let superViewMidX = self.mainView.frame.midX
         let superViewWidth = self.mainView.frame.width
         
-        let fieldsWidth = CGFloat().computePercent(60, of: superViewWidth)
+        let fieldsWidth = CGFloat().computePercent(70, of: superViewWidth)
         let fieldsOriginX = superViewMidX - ( fieldsWidth / 2)
         let fieldsSize = CGSize(width: fieldsWidth, height: 40)
         
@@ -74,16 +74,56 @@ class SignUpView {
         mainView.addSubview(signUpWithEmail)
     }
     
-    private func assignProperties() {
+    fileprivate func assignBackgroundColor() {
         emailField.backgroundColor = .white
         repeatEmailField.backgroundColor = .white
         passwordField.backgroundColor = .white
         signUpWithEmail.backgroundColor = .white
-        
+    }
+    
+    fileprivate func assignTextAttributes() {
+        // Color
         emailField.textColor = .black
         repeatEmailField.textColor = .black
         passwordField.textColor = .black
         signUpWithEmail.tintColor = .black
+        
+        // Hidden characters for password text field
+        passwordField.isSecureTextEntry = true
+        
+        // Disable auto correction
+        emailField.autocorrectionType = .no
+        repeatEmailField.autocorrectionType = .no
+        passwordField.autocorrectionType = .no
+    }
+    
+    fileprivate func assignCornerRadius() {
+        emailField.layer.cornerRadius = 2.0
+        repeatEmailField.layer.cornerRadius = 2.0
+        passwordField.layer.cornerRadius = 2.0
+        signUpWithEmail.layer.cornerRadius = 2.0
+    }
+    
+    fileprivate func applyTextFieldsPadding() {
+        
+        emailField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 20))
+        emailField.leftViewMode = .always
+        repeatEmailField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 20))
+        repeatEmailField.leftViewMode = .always
+        passwordField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 20))
+        passwordField.leftViewMode = .always
+    }
+    
+    fileprivate func assignProperties() {
+        
+        assignBackgroundColor()
+        
+        assignTextAttributes()
+        
+        assignCornerRadius()
+        
+        applyTextFieldsPadding()
+        
     }
     
 }

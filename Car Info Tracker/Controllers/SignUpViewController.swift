@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class SignUpViewController: UIViewController {
+public class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     var signUpUI: SignUpView! = nil
     
@@ -15,8 +15,15 @@ public class SignUpViewController: UIViewController {
         super.viewDidLoad()
     
         signUpUI = SignUpView("Sign Up", view: &self.view)
+        signUpUI.emailField.delegate = self
+        signUpUI.repeatEmailField.delegate = self
+        signUpUI.passwordField.delegate = self
         
-        
+    }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
 }
