@@ -37,6 +37,7 @@
 		A8D647A526A07C0E0028249D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D647A426A07C0E0028249D /* ProfileViewController.swift */; };
 		A8D647A726A07CBE0028249D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D647A626A07CBE0028249D /* SignUpViewController.swift */; };
 		A8D647A926A07D6A0028249D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D647A826A07D6A0028249D /* SignUpView.swift */; };
+		A8DD64A926AC7DC000B15D57 /* FormButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD64A826AC7DC000B15D57 /* FormButton.swift */; };
 		A8F73E4E26A06ECA00ADF2E8 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F73E4D26A06ECA00ADF2E8 /* LogInViewController.swift */; };
 		E591DD64672D17A17554C42F /* Pods_Car_Info_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1150EC4100B6EEB7899E4D8D /* Pods_Car_Info_TrackerTests.framework */; };
 		EBBE4166BAAE39AF050DBE3B /* Pods_Car_Info_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD7A07070033DCEE3DC4B65 /* Pods_Car_Info_Tracker.framework */; };
@@ -104,6 +105,7 @@
 		A8D647A626A07CBE0028249D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A8D647A826A07D6A0028249D /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		A8D647AA26A0A7250028249D /* Car Info Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Car Info Tracker.entitlements"; sourceTree = "<group>"; };
+		A8DD64A826AC7DC000B15D57 /* FormButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormButton.swift; sourceTree = "<group>"; };
 		A8F73E4D26A06ECA00ADF2E8 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		C9272BE73D68FDA4D6C88E92 /* Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Car_Info_Tracker_Car_Info_TrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -221,6 +223,7 @@
 		A8541F83268637B700FF064C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A8DD64A726AC7DA500B15D57 /* Buttons */,
 				A8D4FEC3268EFB3F0005F7A3 /* SelectModeView.swift */,
 				A89842D02695A262006516D0 /* Cells */,
 				A8A5E300268B77C400D6D3EF /* Layouts */,
@@ -301,6 +304,14 @@
 				A8A5E301268B77EC00D6D3EF /* MosaicMenuLayout.swift */,
 			);
 			path = Layouts;
+			sourceTree = "<group>";
+		};
+		A8DD64A726AC7DA500B15D57 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				A8DD64A826AC7DC000B15D57 /* FormButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		E7A9D819FC194F59A6B05BF3 /* Pods */ = {
@@ -569,6 +580,7 @@
 				A82436412693390500D3A6C6 /* CurrentDataDrawer.swift in Sources */,
 				A8D4FF182691C2270005F7A3 /* SceneDelegate.swift in Sources */,
 				A8A5E30D268B86A300D6D3EF /* Mode.swift in Sources */,
+				A8DD64A926AC7DC000B15D57 /* FormButton.swift in Sources */,
 				A8541F53268637A300FF064C /* AppDelegate.swift in Sources */,
 				A8A5E304268B798600D6D3EF /* Utilities.swift in Sources */,
 				A8D647A726A07CBE0028249D /* SignUpViewController.swift in Sources */,

@@ -18,7 +18,9 @@
     - Implement Authentication UI
         - Sign Up page
             - text field should return (DONE)
-            - responsive ui
+            - group form textFields and button as unique and modular UIView object (DONE)
+                - So that if I have to make changes in the view, I have only to move the form around without changing its subviews
+            - responsive ui (DONE)
             - dark mode
     - Authentication Model
     - For every user is reserved a space where its car info persist
